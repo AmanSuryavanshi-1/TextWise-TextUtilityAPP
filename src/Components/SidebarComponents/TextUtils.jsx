@@ -90,6 +90,7 @@ const TextUtils = () => {
             placeholder="Enter text..."
             // style={{ height: 'calc(50vh - 2rem)' }} // Adjust this height as needed
           ></textarea>
+          
         </div>
         <div className="flex flex-col w-full lg:w-1/2">
           <div className="flex flex-col flex-grow p-4 border rounded-lg shadow-lg border-bg-variant bg-primary-variant dark:bg-bg-variant">
