@@ -35,8 +35,13 @@ export default {
       },
     },
   },
+<<<<<<< HEAD
   darkMode: 'class',
   plugins: [
     require('tailwind-scrollbar'),
   ],
+=======
+  darkMode: 'class', // This enables dark mode with a class
+  plugins: [],
+>>>>>>> 2ee765bbb47141a87e10c4b7e37dacf8fef097b5
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaUpload, FaDownload, FaTrash, FaExchangeAlt, FaCopy, FaAlignLeft } from 'react-icons/fa';
@@ -115,3 +116,16 @@ const TextUtils = () => {
 };
 
 export default TextUtils;
+=======
+import React from 'react'
+
+const TextUtils = () => {
+  return (
+    <div>
+      
+    </div>
+  )
+}
+
+export default TextUtils
+>>>>>>> 2ee765bbb47141a87e10c4b7e37dacf8fef097b5
