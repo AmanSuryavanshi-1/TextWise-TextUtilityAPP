@@ -7,13 +7,9 @@ import './index.css'
 import HomePage from './Pages/HomePage';
 import About from './Pages/About';
 import Contact from './Pages/Contact';
-<<<<<<< HEAD
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import AppLayout from './AppLayout';
-=======
-import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
-// import AppLayout from './AppLayout';
->>>>>>> 2ee765bbb47141a87e10c4b7e37dacf8fef097b5
+
 import TakeNotes from './Components/SidebarComponents/TakeNotes';
 import TextUtils from './Components/SidebarComponents/TextUtils';
 import Summarizer from './Components/SidebarComponents/Summarizer';
@@ -24,7 +20,6 @@ import Transliteration from './Components/SidebarComponents/Translitration';
 import TextEditor from './Components/SidebarComponents/TextEditor';
 import Auth from './Pages/Auth';
 import Error from './Pages/Error';
-<<<<<<< HEAD
 
 // const Layout = () => {
 //   return (
@@ -36,20 +31,6 @@ import Error from './Pages/Error';
 //     </div>
 //   );
 // };
-=======
-import Sidebar from './Components/Sidebar';
-
-const Layout = () => {
-  return (
-    <div className="mainBody">
-      <Sidebar />
-      <section>
-        <Outlet />
-      </section>
-    </div>
-  );
-};
->>>>>>> 2ee765bbb47141a87e10c4b7e37dacf8fef097b5
 
 const router = createBrowserRouter([
   {
@@ -62,12 +43,8 @@ const router = createBrowserRouter([
               { path: "auth", element: <Auth />},
               {
                 path:'/layout',
-<<<<<<< HEAD
                 element: <AppLayout/>,
-=======
-                element: <Layout/>,
->>>>>>> 2ee765bbb47141a87e10c4b7e37dacf8fef097b5
-                children: [ 
+               children: [ 
                   { path: "notes", element: <TakeNotes /> },
                   { path: "textutils", element: <TextUtils /> },
                   { path: "summarizer", element: <Summarizer/>},
