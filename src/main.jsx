@@ -20,6 +20,7 @@ import Transliteration from './Components/SidebarComponents/Translitration';
 import TextEditor from './Components/SidebarComponents/TextEditor';
 import Auth from './Pages/Auth';
 import Error from './Pages/Error';
+import LandingPage from './Pages/LandingaPage';
 
 // const Layout = () => {
 //   return (
@@ -39,10 +40,11 @@ const router = createBrowserRouter([
           children: [ 
               { path: "about", element: <About /> },
               { path: "contact", element: <Contact />},
+              { path: "LandingPage", element: <LandingPage />},
               // { path: "issue", element: <Issue />},
               { path: "auth", element: <Auth />},
               {
-                path:'/layout',
+                path:'layout',
                 element: <AppLayout/>,
                children: [ 
                   { path: "notes", element: <TakeNotes /> },

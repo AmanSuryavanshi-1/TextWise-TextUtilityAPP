@@ -8,12 +8,12 @@ export default {
     extend: {
       colors: {
         bg: '#4D724D',
-        'bg-variant': '#8DB48E',
+        bgVariant: '#8DB48E',
         primary: '#cdcaca',
-        'primary-variant': '#D5E7ED',
+        primaryVariant: '#D5E7ED',
         white: '#fff',
         light: 'rgba(255, 255, 255, 0.6)',
-        'text-color': 'rgb(0, 0, 0)',
+        textColor: 'rgb(0, 0, 0)',
       },
       fontFamily: {
         'sans': ['Poppins', 'sans-serif'],

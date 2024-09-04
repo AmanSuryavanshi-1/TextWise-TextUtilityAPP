@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../Components/Navbar';
 import About from './About';
 import { Outlet, useLocation } from 'react-router-dom';
-import Footer from '../Components/Footer';
+import LandingPage from './LandingaPage';
 
 const HomePage = () => {
   const location = useLocation();
@@ -11,9 +11,8 @@ const HomePage = () => {
     <>
     <div>
         <Navbar />
-        {isHomePage && <About />}
+        {isHomePage && <LandingPage />}
         <Outlet />
-        <Footer/>
     </div>
     </>
   )
