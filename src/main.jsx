@@ -11,7 +11,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import AppLayout from './AppLayout';
 
 import TakeNotes from './Components/SidebarComponents/TakeNotes';
-import TextUtils from './Components/SidebarComponents/TextUtils';
 import Summarizer from './Components/SidebarComponents/Summarizer';
 import AI_Texting from './Components/SidebarComponents/AI_Texting';
 import STT from './Components/SidebarComponents/STT';
@@ -21,6 +20,7 @@ import TextEditor from './Components/SidebarComponents/TextEditor';
 import Auth from './Pages/Auth';
 import Error from './Pages/Error';
 import LandingPage from './Pages/LandingaPage';
+import TextToolkit from './Components/SidebarComponents/TextToolkit';
 
 // const Layout = () => {
 //   return (
@@ -48,7 +48,7 @@ const router = createBrowserRouter([
                 element: <AppLayout/>,
                children: [ 
                   { path: "notes", element: <TakeNotes /> },
-                  { path: "textutils", element: <TextUtils /> },
+                  { path: "text-toolkit", element: <TextToolkit /> },
                   { path: "summarizer", element: <Summarizer/>},
                   { path: "aitexting", element: <AI_Texting/>},
                   { path: "stt", element: <STT/> },

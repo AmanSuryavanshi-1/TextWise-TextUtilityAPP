@@ -7,13 +7,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg: '#4D724D',
+        bg: '#1b491b',
         bgVariant: '#8DB48E',
-        primary: '#cdcaca',
-        primaryVariant: '#D5E7ED',
+        primary: '#e7f3d6',
+        primaryVariant: '#cfe7ad',
         white: '#fff',
-        light: 'rgba(255, 255, 255, 0.6)',
-        textColor: 'rgb(0, 0, 0)',
+        dark: '#222629',
       },
       fontFamily: {
         'sans': ['Poppins', 'sans-serif'],

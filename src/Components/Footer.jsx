@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../assets/AV_Main Logo.png';
+import logo from '../../assets/logo.png';
 import meLogo from '../../assets/ASlogo.png';
 import { BsLinkedin } from 'react-icons/bs';
 import { FaGithub, FaInstagram } from 'react-icons/fa';
@@ -10,10 +10,10 @@ import { IoIosContact } from "react-icons/io";
 
 const Footer = () => {
   return (
-    <footer className="py-12 text-center text-md bg-primary-light text-primary-bgColor">
+    <footer className="py-12 text-center text-primaryVariant text-md bg-bg">
       <div className="flex justify-center mb-16 space-x-4">
-        <img src={meLogo} loading="lazy" alt="Main Logo" className="object-contain w-16 h-16" />
-        <img src={logo} loading='lazy' alt="Logo" className="object-contain w-16 h-16" />
+        <img src={meLogo} loading="lazy" alt="Main Logo" className="object-contain w-16 h-16 filter invert sepia saturate-200 hue-rotate-[340deg]" />
+        <img src={logo} loading='lazy' alt="Logo" className="object-contain w-16 h-16 filter invert sepia saturate-200 hue-rotate-[340deg]" />
       </div>
 
       <ul className="flex flex-wrap justify-center gap-10 mb-16">

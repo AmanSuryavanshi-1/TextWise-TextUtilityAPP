@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaUpload, FaDownload, FaTrash, FaExchangeAlt, FaCopy, FaAlignLeft, FaQuestionCircle } from 'react-icons/fa';
 
-const TextUtils = () => {
+const TextToolkit = () => {
   const [text, setText] = useState('');
   const [showPopup, setShowPopup] = useState(false);
 
@@ -58,7 +58,7 @@ const TextUtils = () => {
     <div className="w-[85vw] mx-auto font-sans bg-white dark:bg-bg text-text-color dark:text-primary p-6 rounded-lg shadow-custom">
       <div className="relative flex flex-col items-start justify-between gap-2 mb-1 md:gap-2 md:flex-row md:items-center">
         <div className="flex items-center">
-          <h1 className="font-serif text-4xl font-bold sm:text-3xl text-bg dark:text-primary">TextUtils</h1>
+          <h1 className="font-serif text-4xl font-bold sm:text-3xl text-bg dark:text-primary">Text Toolkit</h1>
           <div 
             className="relative ml-2"
             onMouseEnter={() => setShowPopup(true)}
@@ -67,7 +67,7 @@ const TextUtils = () => {
             <FaQuestionCircle className="text-xl text-gray-600 cursor-pointer dark:text-light" />
             {showPopup && (
               <div className="absolute left-0 z-10 p-4 mt-2 text-sm text-left text-gray-700 bg-white rounded-lg shadow-lg dark:bg-bg-variant dark:text-primary w-[250px] hover:cursor-default">
-                <p><strong>TextUtils</strong> is a versatile text manipulation tool.</p>
+                <p><strong>Text Toolkit</strong> is a versatile text manipulation tool.</p>
                 <ul className="list-disc list-inside">
                   <li>Convert text to uppercase/lowercase.</li>
                   <li>Clear text content.</li>
@@ -131,4 +131,4 @@ const TextUtils = () => {
   );
 };
 
-export default TextUtils;
+export default TextToolkit;
