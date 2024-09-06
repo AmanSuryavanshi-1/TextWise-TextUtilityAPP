@@ -9,7 +9,7 @@ const NavItem = ({ to, icon: Icon, children }) => (
     className={({ isActive }) => 
       `flex items-center px-3 py-2 text-sm font-medium transition-colors duration-200
       ${isActive 
-        ? 'text-white bg-bgVariant rounded-md' 
+        ? 'text-white bg-primaryVariant rounded-md' 
         : 'text-primary hover:text-white hover:bg-bgVariant/50 rounded-md'
       }`
     }
@@ -27,7 +27,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="bg-bg h-[8vh] px-4 sticky top-0 z-[999] shadow-md">
+        <nav className="bg-bg h-[7vh] px-4 sticky top-0 z-[999] shadow-md">
             <div className="flex items-center justify-between h-full mx-auto max-w-7xl">
                 <div className="flex items-center space-x-4">
                     <Link to="/" className="flex items-center">

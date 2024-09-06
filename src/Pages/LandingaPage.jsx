@@ -122,12 +122,53 @@ const LandingPage = () => {
             </button>
           </Link>
         </div>
-          
+
+        <div className="p-8 mt-8 bg-white rounded-lg text-textColor">
+        <h2 className="mb-4 text-2xl font-bold text-center">Resources</h2>
+        <ul className="space-y-2 list-none">
+          <li>
+            <a href="https://reactjs.org/" className="text-bgVariant hover:underline hover:text-shadow-sm">React Documentation</a>
+          </li>
+          <li>
+            <a href="https://tailwindcss.com/docs" className="text-bgVariant hover:underline hover:text-shadow-sm">Tailwind CSS Documentation</a>
+          </li>
+          <li>
+            <a href="https://github.com/" className="text-bgVariant hover:underline hover:text-shadow-sm">GitHub</a>
+          </li>
+          <li>
+            <a href="https://developer.mozilla.org/en-US/" className="text-bgVariant hover:underline hover:text-shadow-sm">MDN Web Docs</a>
+          </li>
+          <li>
+            <a href="https://code.visualstudio.com/" className="text-bgVariant hover:underline hover:text-shadow-sm">Visual Studio Code</a>
+          </li>
+        </ul>
       </div>
 
+      {/* Integration Section */}
+      <div className="p-8 mt-8 bg-white rounded-lg text-textColor">
+        <h2 className="mb-4 text-2xl font-bold text-center">Integration</h2>
+        <ul className="space-y-2 list-none">
+          <li>
+            <a href="https://firebase.google.com/" className="text-bgVariant hover:underline hover:text-shadow-sm">Firebase Integration</a>
+          </li>
+          <li>
+            <a href="https://nextjs.org/" className="text-bgVariant hover:underline hover:text-shadow-sm">Next.js Integration</a>
+          </li>
+          <li>
+            <a href="https://nodejs.org/en/" className="text-bgVariant hover:underline hover:text-shadow-sm">Node.js Integration</a>
+          </li>
+          <li>
+            <a href="https://aws.amazon.com/" className="text-bgVariant hover:underline hover:text-shadow-sm">AWS Integration</a>
+          </li>
+          <li>
+            <a href="https://stripe.com/" className="text-bgVariant hover:underline hover:text-shadow-sm">Stripe Integration</a>
+          </li>
+        </ul>
+      </div>
+      </div>
       <Footer />
     </div>
   );
-};
+}
 
 export default LandingPage;

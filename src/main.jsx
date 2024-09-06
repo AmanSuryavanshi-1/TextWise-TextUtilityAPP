@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 // import 'regenerator-runtime/runtime'  // For speech to text
 
 import ReactDOM from 'react-dom/client'
@@ -21,6 +21,7 @@ import Auth from './Pages/Auth';
 import Error from './Pages/Error';
 import LandingPage from './Pages/LandingaPage';
 import TextToolkit from './Components/SidebarComponents/TextToolkit';
+import ShimmerAbout from './Shimmer/ShimmerAbout';
 
 // const Layout = () => {
 //   return (
@@ -38,7 +39,13 @@ const router = createBrowserRouter([
   path:'/',
   element: <HomePage/>,
           children: [ 
-              { path: "about", element: <About /> },
+            { path: "/about", 
+              element: ( 
+              <Suspense fallback={
+                  <div className="loading-fallback"> <ShimmerAbout/></div>}>
+                <About/> 
+              </Suspense>) 
+            },
               { path: "contact", element: <Contact />},
               { path: "LandingPage", element: <LandingPage />},
               // { path: "issue", element: <Issue />},
