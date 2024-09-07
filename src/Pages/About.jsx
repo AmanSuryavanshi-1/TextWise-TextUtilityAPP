@@ -43,7 +43,6 @@ const About = () => {
 
       <div>
         {/* <NotionPage/> */}
-        <RepoData />
         <GithubProfile />
         <GithubCalendar />
       </div>

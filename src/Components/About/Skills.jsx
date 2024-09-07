@@ -38,7 +38,7 @@ const TechTools = () => {
 
     return (
         <div className="p-8 m-12 overflow-hidden">
-            <h3 className="mb-8 font-serif text-3xl font-bold text-center text-primary-light">
+            <h3 className="mb-8 font-serif text-3xl font-bold text-center text-bg">
                 Tools & Technologies 
             </h3>
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-1 md:grid-cols-4 lg:gap-6">
@@ -48,10 +48,10 @@ const TechTools = () => {
                         target="_blank" 
                         rel="noopener noreferrer" 
                         key={index} 
-                        className="flex flex-col items-center justify-center p-4 m-2 transition-all duration-300 transform rounded-lg shadow-md bg-primary-bgColor hover:scale-105 hover:shadow-md hover:shadow-primary-light"
+                        className="flex flex-col items-center justify-center p-5 m-2 transition-all duration-300 transform bg-white border-2 rounded-lg shadow-md border-bg hover:scale-105 hover:shadow-md hover:shadow-primary-light"
                     >
-                        <skill.icon className="text-5xl text-primary-yellow animate-bounce" />
-                        <span className="mt-2 text-sm font-semibold text-primary-light">{skill.name}</span>
+                        <skill.icon className="text-5xl text-bg animate-bounce" />
+                        <span className="mt-2 text-sm font-semibold text-bg">{skill.name}</span>
                     </a>
                 ))}
             </div>

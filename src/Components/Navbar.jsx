@@ -3,23 +3,29 @@ import logo from '../../assets/logo.png';
 import { Link, NavLink } from "react-router-dom";
 import { FaBars, FaTimes, FaHome, FaEdit, FaEnvelope, FaExclamationCircle, FaUser, FaInfoCircle } from 'react-icons/fa';
 
-const NavItem = ({ to, icon: Icon, children }) => (
-  <NavLink 
-    to={to} 
-    className={({ isActive }) => 
-      `flex items-center px-3 py-2 text-sm font-medium transition-colors duration-200
-      ${isActive 
-        ? 'text-white bg-primaryVariant rounded-md' 
-        : 'text-primary hover:text-white hover:bg-bgVariant/50 rounded-md'
-      }`
-    }
-  >
-    <Icon className="w-4 h-4 mr-2" />
-    {children}
-  </NavLink>
-);
+const NavItem = ({ to, icon: Icon, children, onClick }) => (
+    <NavLink 
+      to={to} 
+      className={({ isActive }) => `
+        flex items-center px-3 py-1 text-sm transition-all duration-200
+        ${isActive 
+          ? 'text-white bg-bg  rounded-full shadow-inner border-b-2 border-white' 
+          : 'text-bg hover:text-white hover:bg-bg rounded-full'
+        }
+      `}
+      onClick={onClick}
+    >
+      {({ isActive }) => (
+        <>
+          <Icon className={`w-4 h-4 mr-2 ${isActive ? 'text-white' : 'group-hover:text-white'}`} />
+          {children}
+        </>
+      )}
+    </NavLink>
+  );
 
-const Navbar = () => {
+
+  const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -27,7 +33,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="bg-bg h-[7vh] px-4 sticky top-0 z-[999] shadow-md">
+        <nav className="bg-primary h-[7vh] px-4 sticky top-0 z-[999] shadow-md">
             <div className="flex items-center justify-between h-full mx-auto max-w-7xl">
                 <div className="flex items-center space-x-4">
                     <Link to="/" className="flex items-center">
@@ -40,7 +46,7 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                <div className="hidden font-serif text-base font-bold md:block text-primary">
+                <div className="hidden font-serif text-base font-bold text-bg md:block">
                     Note Taking & Editing WebApp
                 </div>
                 
@@ -51,7 +57,7 @@ const Navbar = () => {
                 </div>
 
                 <button 
-                    className="transition-colors duration-200 md:hidden text-primary hover:text-white"
+                    className="text-white transition-colors duration-200 md:hidden hover:text-primary"
                     onClick={toggleMenu}
                 >
                     {isMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
@@ -72,7 +78,7 @@ const Navbar = () => {
                 </div>
             )}
         </nav>
-    )
-}
+    );
+};
 
 export default Navbar;
