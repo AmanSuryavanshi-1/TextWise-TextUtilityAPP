@@ -10,7 +10,7 @@ const NavItem = ({ to, icon: Icon, children, onClick }) => (
         flex items-center px-3 py-1 text-sm transition-all duration-200
         ${isActive 
           ? 'text-white bg-bg  rounded-full shadow-inner border-b-2 border-white' 
-          : 'text-bg hover:text-white hover:bg-bg rounded-full'
+          : 'text-primaryVariant hover:text-white hover:bg-bg rounded-full'
         }
       `}
       onClick={onClick}
@@ -33,7 +33,7 @@ const NavItem = ({ to, icon: Icon, children, onClick }) => (
     };
 
     return (
-        <nav className="bg-primary h-[8vh] px-4 sticky top-0 z-[999]">
+        <nav className="bg-bg h-[8vh] px-4 sticky top-0 z-[999]">
             <div className="flex items-center justify-between h-full mx-auto max-w-7xl">
                 <div className="flex items-center space-x-4">
                     <Link to="/" className="flex items-center">
@@ -46,7 +46,7 @@ const NavItem = ({ to, icon: Icon, children, onClick }) => (
                     </div>
                 </div>
 
-                <div className="hidden font-serif text-base font-bold text-bg md:block">
+                <div className="hidden font-serif text-base font-bold text-primaryVariant md:block">
                     Note Taking & Editing WebApp
                 </div>
                 
@@ -57,7 +57,7 @@ const NavItem = ({ to, icon: Icon, children, onClick }) => (
                 </div>
 
                 <button 
-                    className="text-white transition-colors duration-200 md:hidden hover:text-primary"
+                    className="transition-colors duration-200 text-primaryVariant md:hidden hover:text-primary"
                     onClick={toggleMenu}
                 >
                     {isMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
