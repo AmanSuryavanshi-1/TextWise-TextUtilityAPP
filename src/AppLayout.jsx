@@ -5,10 +5,8 @@ import { Outlet } from 'react-router-dom';
 const AppLayout = () => {
   return (
     <div className="flex">
-      <div className="w-[15vw]">
         <Sidebar />
-      </div>
-      <main className="w-[85vw]">
+      <main>
         <Outlet/>
       </main>
     </div>

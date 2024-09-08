@@ -33,11 +33,11 @@ const NavItem = ({ to, icon: Icon, children, onClick }) => (
     };
 
     return (
-        <nav className="bg-bg h-[8vh] px-4 sticky top-0 z-[999]">
+        <nav className="bg-bg h-[6vh] px-4 sticky top-0 z-[999]">
             <div className="flex items-center justify-between h-full mx-auto max-w-7xl">
                 <div className="flex items-center space-x-4">
                     <Link to="/" className="flex items-center">
-                        <img className="w-10 h-10 brightness-200 contrast-200" src={logo} alt="TextWise Logo" />
+                        <img className="w-16 h-9 filter brightness-0 invert" src={logo} alt="TextWise Logo" />
                     </Link>
                     <div className="items-center hidden space-x-1 md:flex">
                         <NavItem to="/" icon={FaHome}>Home</NavItem>

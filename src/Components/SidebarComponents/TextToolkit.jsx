@@ -55,7 +55,7 @@ const TextToolkit = () => {
   const readingTime = (0.008 * wordCount).toFixed(2);
 
   return (
-    <div className="w-[85vw] mx-auto font-sans bg-white dark:bg-bg text-text-color dark:text-primary p-6 rounded-lg shadow-custom">
+    <div className="h-[94vh] w-[85vw] p-4 font-sans bg-primaryVariant dark:bg-bg dark:text-primary">
       <div className="relative flex flex-col items-start justify-between gap-2 mb-1 md:gap-2 md:flex-row md:items-center">
         <div className="flex items-center">
           <h1 className="font-serif text-4xl font-bold sm:text-3xl text-bg dark:text-primary">Text Toolkit</h1>
@@ -64,9 +64,9 @@ const TextToolkit = () => {
             onMouseEnter={() => setShowPopup(true)}
             onMouseLeave={() => setShowPopup(false)}
           >
-            <FaQuestionCircle className="text-xl text-gray-600 cursor-pointer dark:text-light" />
+            <FaQuestionCircle className="text-xl cursor-pointer text-bgVariant dark:textColor" />
             {showPopup && (
-              <div className="absolute left-0 z-10 p-4 mt-2 text-sm text-left text-gray-700 bg-white rounded-lg shadow-lg dark:bg-bg-variant dark:text-primary w-[250px] hover:cursor-default">
+              <div className="absolute left-0 z-10 p-4 text-sm text-left bg-white rounded-lg shadow-lg w-72 text-bg dark:bg-bg-variant dark:text-primary hover:cursor-default">
                 <p><strong>Text Toolkit</strong> is a versatile text manipulation tool.</p>
                 <ul className="list-disc list-inside">
                   <li>Convert text to uppercase/lowercase.</li>
@@ -74,14 +74,14 @@ const TextToolkit = () => {
                   <li>Replace words within the text.</li>
                   <li>Copy text to your clipboard.</li>
                   <li>Transform text into sentence case.</li>
+                  <li>Learn more on the <Link to="/" className="text-primary hover:underline"> landing page</Link>.</li>
                 </ul>
-                <p>Learn more on the <Link to="/" className="text-bg-variant hover:underline">about page</Link>.</p>
               </div>
             )}
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-6 lg:flex-row">
+      <div className="flex flex-col gap-6 mt-3 lg:flex-row">
         <div className="flex flex-col w-full lg:w-1/2">
           <div className="flex flex-wrap gap-2 mb-3">
             {[
@@ -95,7 +95,7 @@ const TextToolkit = () => {
               <button 
                 key={index}
                 disabled={text.length === 0} 
-                className="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white transition rounded-full shadow-md bg-bg-variant duration-400 hover:bg-primary hover:text-text-color disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex items-center gap-1 px-3 py-1 text-sm font-semibold text-white transition shadow-md rounded-2xl bg-bgVariant duration-400 hover:bg-primary hover:text-text-color disabled:opacity-50 disabled:cursor-not-allowed"
                 onClick={btn.onClick}
               >
                 <btn.icon className="text-lg" />{btn.text}
@@ -103,12 +103,12 @@ const TextToolkit = () => {
             ))}
           </div>
           <textarea 
-            className="flex-grow h-[65vh] w-full p-4 overflow-y-auto text-base border rounded-lg shadow-inner resize-none scrollbar-thin scrollbar-thumb-bg-variant scrollbar-track-primary border-bg-variant focus:outline-none focus:ring-2 focus:ring-bg-variant bg-primary-variant dark:bg-bg-variant text-text-color dark:text-primary"
+            className="flex-grow w-full p-4 mt-3 overflow-y-auto text-base border rounded-lg shadow-inner resize-none h-[65vh] border-bg-variant focus:outline-none focus:ring-2 focus:ring-bg-variant bg-primary-variant dark:bg-bg-variant text-text-color dark:text-primary scrollbar-thin scrollbar-thumb-bgVariant scrollbar-track-bg"
             value={text} 
             onChange={handleOnChange} 
             id="myBox" 
             placeholder="Enter text..."
-          ></textarea>
+          />
           
         </div>
         <div className="flex flex-col w-full lg:w-1/2">

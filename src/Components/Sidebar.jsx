@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { FaEdit, FaTools, FaLanguage, FaMicrophone, FaRobot, FaStickyNote } from 'react-icons/fa';
-import { MdKeyboardArrowDown } from 'react-icons/md';
+import { MdKeyboardArrowDown, MdSummarize, MdGrading, MdRecordVoiceOver, MdKeyboardVoice } from 'react-icons/md';
 
 const Sidebar = () => {
+  const location = useLocation();
   const [dropdowns, setDropdowns] = useState({
     notes: false,
     transcribe: false,
@@ -14,74 +15,98 @@ const Sidebar = () => {
     setDropdowns(prev => ({ ...prev, [key]: !prev[key] }));
   };
 
-  const SidebarItem = ({ to, icon, children }) => (
+  const NavItem = ({ to, icon: Icon, children, onClick }) => (
     <NavLink 
       to={to} 
-      exact 
-      className="flex items-center m-2 transition-colors duration-300 rounded-lg cursor-pointer text-bg hover:text-bg-variant"
+      className={({ isActive }) => `
+        flex items-center px-3 py-1 text-sm transition-all duration-200
+        ${isActive 
+          ? 'text-white bg-bg rounded-full shadow-inner border-b-2 border-white' 
+          : 'text-primaryVariant hover:text-white hover:bg-bg rounded-full'
+        }
+      `}
+      onClick={onClick}
     >
-      <span className="mr-2">{icon}</span>
-      <p>{children}</p>
+      {({ isActive }) => (
+        <>
+          <Icon className={`w-4 h-4 mr-2 ${isActive ? 'text-white' : 'group-hover:text-white'}`} />
+          {children}
+        </>
+      )}
     </NavLink>
   );
 
-  const DropdownSection = ({ title, icon, isOpen, toggleOpen, children }) => (
-    <div className="relative">
-      <div 
-        onClick={toggleOpen} 
-        className="flex items-center justify-between p-2 m-2 transition-colors duration-300 rounded-lg cursor-pointer text-bg hover:text-bg-variant"
-      >
-        <div className="flex items-center">
-          <span className="mr-2">{icon}</span>
-          <p>{title}</p>
+  const DropdownSection = ({ title, icon: Icon, isOpen, toggleOpen, children, path }) => {
+    const active = location.pathname.startsWith(path);
+    return (
+      <div className="relative">
+        <div
+          onClick={toggleOpen}
+          className={`
+            flex items-center justify-between px-3 py-1 text-sm transition-all duration-200 cursor-pointer
+            ${active
+              ? 'text-white bg-bg rounded-full shadow-inner border-b-2 border-white'
+              : 'text-primaryVariant hover:text-white hover:bg-bg rounded-full'
+            }
+          `}
+        >
+          <div className="flex items-center">
+            <Icon className={`w-4 h-4 mr-2 ${active ? 'text-white' : 'group-hover:text-white'}`} />
+            <p>{title}</p>
+          </div>
+          <MdKeyboardArrowDown className={`transform transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
         </div>
-        <MdKeyboardArrowDown className={`transform transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+        <div className={`ml-4 overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-40' : 'max-h-0'}`}>
+          {children}
+        </div>
       </div>
-      <div className={`ml-4 overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-40' : 'max-h-0'}`}>
-        {children}
-      </div>
-    </div>
-  );
+    );
+  };
 
   return (
-    <section className="flex flex-col bg-primary overflow-y-auto scrollbar-thin scrollbar-thumb-bg-variant scrollbar-track-transparent scroll-smooth w-[11.25em]">
-      <div className="flex flex-col flex-grow text-sm">
-        <SidebarItem to="texteditor" icon={<FaEdit />}>Editor</SidebarItem>
-        <SidebarItem to="text-toolkit" icon={<FaTools />}>Text Utils</SidebarItem>
-        <SidebarItem to="transliteration" icon={<FaLanguage />}>Transliteration</SidebarItem>
+    <div className='bg-primaryVariant'>
+    <div className="flex rounded-r-3xl border-2 border-primaryVariant flex-col p-2 overflow-y-auto bg-bg scrollbar-thin scrollbar-thumb-primary scrollbar-track-transparent scroll-smooth w-[15vw] h-[94vh]">
+      <div className="flex flex-col flex-grow space-y-1">
+        <NavItem to="texteditor" icon={FaEdit}>Editor</NavItem>
+        <NavItem to="text-toolkit" icon={FaTools}>Text Utils</NavItem>
+        <NavItem to="transliteration" icon={FaLanguage}>Transliteration</NavItem>
 
-        <DropdownSection 
-          title="Transcribe" 
-          icon={<FaMicrophone />}
-          isOpen={dropdowns.transcribe} 
+        <DropdownSection
+          title="Transcribe"
+          icon={FaMicrophone}
+          isOpen={dropdowns.transcribe}
           toggleOpen={() => toggleDropdown('transcribe')}
+          path="/transcribe"
         >
-          <SidebarItem to="stt">Speech➜Text</SidebarItem>
-          <SidebarItem to="tts">Text➜Speech</SidebarItem>
+          <NavItem to="stt" icon={MdKeyboardVoice}>Speech➜Text</NavItem>
+          <NavItem to="tts" icon={MdRecordVoiceOver}>Text➜Speech</NavItem>
         </DropdownSection>
 
-        <DropdownSection 
-          title="AI Texting" 
-          icon={<FaRobot />}
-          isOpen={dropdowns.aiTexting} 
+        <DropdownSection
+          title="AI Texting"
+          icon={FaRobot}
+          isOpen={dropdowns.aiTexting}
           toggleOpen={() => toggleDropdown('aiTexting')}
+          path="/ai-texting"
         >
-          <SidebarItem to="ai-texting/x">Summarizer</SidebarItem>
-          <SidebarItem to="ai-texting/y">Grammar</SidebarItem>
+          <NavItem to="ai-texting/x" icon={MdSummarize}>Summarizer</NavItem>
+          <NavItem to="ai-texting/y" icon={MdGrading}>Grammar</NavItem>
         </DropdownSection>
 
-        <DropdownSection 
-          title="Notes" 
-          icon={<FaStickyNote />}
-          isOpen={dropdowns.notes} 
+        <DropdownSection
+          title="Notes"
+          icon={FaStickyNote}
+          isOpen={dropdowns.notes}
           toggleOpen={() => toggleDropdown('notes')}
+          path="/notes"
         >
-          <SidebarItem to="notes/x">Notes 1</SidebarItem>
-          <SidebarItem to="notes/y">Notes 2</SidebarItem>
-          <SidebarItem to="notes/z">Notes 3</SidebarItem>
+          <NavItem to="notes/x" icon={FaStickyNote}>Note 1</NavItem>
+          <NavItem to="notes/y" icon={FaStickyNote}>Note 2</NavItem>
+          <NavItem to="notes/z" icon={FaStickyNote}>Note 3</NavItem>
         </DropdownSection>
-     </div>
-    </section>
+      </div>
+    </div>
+    </div>
   );
 }
 

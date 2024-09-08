@@ -7,25 +7,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        white: '#FFFFFF',    
-        // bg: '#4D724D',       
+        white: '#FFFFFF',       
         bg: '#12372A',
-        bgVariant: '#436850',       
-        // bgVariant: '#8DB48E', 
-        // primary: '#cdcaca', 
+        bgVariant: '#436850',   
         primary: '#ADBC9F', 
         primaryVariant: '#FBFADA', 
         textColor: '#4A4A4A', 
        
         // bgVariant: '#6d9773', // Sage green for secondary elements
-
         // white: '#FBFADA',    // Light cream background
         // bg: '#0C3B2E',       // Dark green for primary elements
         // bgVariant: '#1D5E46', // Darker sage green for better contrast with bg
         // primary: '#FFB800',  // Slightly adjusted golden yellow for better visibility
         // primaryVariant: '#FFC933', // Adjusted lighter gold for hover states
-        // textColor: '#333333', // Dark gray for main text
-
+        // textColor: '#333333', // Dark gray for main tex
         
         
       },
