@@ -33,7 +33,7 @@ const NavItem = ({ to, icon: Icon, children, onClick }) => (
     };
 
     return (
-        <nav className="bg-primary h-[7vh] px-4 sticky top-0 z-[999] shadow-md">
+        <nav className="bg-primary h-[8vh] px-4 sticky top-0 z-[999]">
             <div className="flex items-center justify-between h-full mx-auto max-w-7xl">
                 <div className="flex items-center space-x-4">
                     <Link to="/" className="flex items-center">

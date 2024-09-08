@@ -7,51 +7,26 @@ export default {
   theme: {
     extend: {
       colors: {
-        // bg: '#1b491b',
-        // bgVariant: '#8DB48E',
-        // primary: '#e7f3d6',
-        // primaryVariant: '#cfe7ad',
-        // white: '#fff',
-        // dark: '#222629',
-
-        // Orange black
-        // bgVariant: '#000000',
-        // bg: '#1E1E1E'  ,
-        // white:'#FFFFFF',
-        // primary:'#FFA500',
-        // primaryVariant: '#FFA500',
-        
-        // white: '#FAFAFA',    // Light grayish white background
-        // bg: '#30336B',       // Deep royal blue for primary elements
-        // bgVariant: '#535C68', // Medium gray for secondary elements
-        // primary: '#E84118',  // Strong red for highlights and CTAs
-        // primaryVariant: '#FFC312', // Bright yellow for hover states
-        // textColor: '#2C3A47', // Dark gray for main text
-        // accent: '#1B9CFC'     // Sky blue for accents
-        
-        // Green Black 
-
-        // white: '#FFFFFF',    
-        // bg: '#000000',       
-        // bgVariant: '#6E6E6E', 
-        // primary: '#BCFD4C', 
-        // primaryVariant: '#6d9d1b', 
-        // textColor: 'black', 
-
         white: '#FFFFFF',    
-        bg: '#4D724D',       
-        bgVariant: '#8DB48E', 
-        primary: '#cdcaca', 
-        primaryVariant: '#265226', 
+        // bg: '#4D724D',       
+        bg: '#12372A',
+        bgVariant: '#436850',       
+        // bgVariant: '#8DB48E', 
+        // primary: '#cdcaca', 
+        primary: '#ADBC9F', 
+        primaryVariant: '#FBFADA', 
         textColor: '#4A4A4A', 
-        
+       
+        // bgVariant: '#6d9773', // Sage green for secondary elements
+
         // white: '#FBFADA',    // Light cream background
         // bg: '#0C3B2E',       // Dark green for primary elements
-        // bgVariant: '#6d9773', // Sage green for secondary elements
-        // primary: '#FFBA00',  // Golden yellow for highlights and CTAs
-        // primaryVariant: '#FFD700', // Lighter gold for hover states
+        // bgVariant: '#1D5E46', // Darker sage green for better contrast with bg
+        // primary: '#FFB800',  // Slightly adjusted golden yellow for better visibility
+        // primaryVariant: '#FFC933', // Adjusted lighter gold for hover states
         // textColor: '#333333', // Dark gray for main text
 
+        
         
       },
       fontFamily: {
