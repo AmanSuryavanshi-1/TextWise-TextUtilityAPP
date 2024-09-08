@@ -117,7 +117,7 @@ const LandingPage = () => {
           <p className="mt-6 font-sans text-xl text-textColor">Unlock the power of text with our versatile Toolkit</p>
         </header>
 
-        <div className="grid grid-cols-1 gap-8 mt-28 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 mt-16 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {cards.map((card, index) => (
             <Link 
               key={index} 
