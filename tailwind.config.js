@@ -15,10 +15,11 @@ export default {
         // dark: '#222629',
 
         // Orange black
-        // dark: '#000000',
+        // bgVariant: '#000000',
         // bg: '#1E1E1E'  ,
         // white:'#FFFFFF',
         // primary:'#FFA500',
+        // primaryVariant: '#FFA500',
         
         // white: '#FAFAFA',    // Light grayish white background
         // bg: '#30336B',       // Deep royal blue for primary elements
@@ -28,10 +29,14 @@ export default {
         // textColor: '#2C3A47', // Dark gray for main text
         // accent: '#1B9CFC'     // Sky blue for accents
         
-        // --color-bg:  #000000 ; 
-        // --color-bg-variant: #6E6E6E;
-        // --color-primary: #BCFD4C;
-        // --color-primary-variant: #6d9d1b;
+        // Green Black 
+
+        // white: '#FFFFFF',    
+        // bg: '#000000',       
+        // bgVariant: '#6E6E6E', 
+        // primary: '#BCFD4C', 
+        // primaryVariant: '#6d9d1b', 
+        // textColor: 'black', 
 
         white: '#FFFFFF',    
         bg: '#4D724D',       
@@ -39,7 +44,6 @@ export default {
         primary: '#cdcaca', 
         primaryVariant: '#265226', 
         textColor: '#4A4A4A', 
-        // accent: '#4CAF50'  
         
         // white: '#FBFADA',    // Light cream background
         // bg: '#0C3B2E',       // Dark green for primary elements
@@ -47,7 +51,6 @@ export default {
         // primary: '#FFBA00',  // Golden yellow for highlights and CTAs
         // primaryVariant: '#FFD700', // Lighter gold for hover states
         // textColor: '#333333', // Dark gray for main text
-        // accent: '#FF6B6B',
 
         
       },

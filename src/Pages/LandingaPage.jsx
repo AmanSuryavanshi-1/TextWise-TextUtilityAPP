@@ -105,10 +105,10 @@ const LandingPage = () => {
         </div>
 
         <div className="flex flex-col items-center justify-center my-20 space-y-10 sm:space-y-12">
-          <div className="w-full max-w-md px-12 py-8 text-center bg-white border-2 shadow-lg rounded-3xl border-bgVariant">
-            <h3 className="mb-3 font-serif text-2xl font-semibold text-primaryVariant">Welcome Back</h3>
-            <p className="mb-6 text-base text-bg">Access your account to continue using TextWise.</p>
-            <Link to="/auth" className="inline-flex items-center px-6 py-2 mt-2 font-semibold text-white transition-all duration-300 rounded-full bg-primaryVariant hover:bg-bg">
+          <div className="w-full max-w-md px-12 py-8 text-center border-2 shadow-lg bg-bgVariant rounded-3xl border-primaryVariant">
+            <h3 className="mb-3 font-serif text-2xl text-black">Welcome Back</h3>
+            <p className="mb-6 text-base text-black">Access your account to continue using TextWise.</p>
+            <Link to="/auth" className="inline-flex items-center px-6 py-2 mt-2 font-semibold text-white transition-all duration-300 rounded-full bg-bgVariant hover:bg-bg">
               <FaUser className="mr-2" />
               Access Account
             </Link>

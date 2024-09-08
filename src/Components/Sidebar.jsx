@@ -47,7 +47,7 @@ const Sidebar = () => {
     <section className="flex flex-col bg-primary overflow-y-auto scrollbar-thin scrollbar-thumb-bg-variant scrollbar-track-transparent scroll-smooth w-[11.25em]">
       <div className="flex flex-col flex-grow text-sm">
         <SidebarItem to="texteditor" icon={<FaEdit />}>Editor</SidebarItem>
-        <SidebarItem to="textutils" icon={<FaTools />}>Text Utils</SidebarItem>
+        <SidebarItem to="text-toolkit" icon={<FaTools />}>Text Utils</SidebarItem>
         <SidebarItem to="transliteration" icon={<FaLanguage />}>Transliteration</SidebarItem>
 
         <DropdownSection 
