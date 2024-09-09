@@ -42,6 +42,9 @@ export default {
       screens: {
         'md': '900px',
       },
+      animation: {
+        profile: 'profile__animate 8s ease-in-out infinite 1s',
+      },
     },
   },
   darkMode: 'class',

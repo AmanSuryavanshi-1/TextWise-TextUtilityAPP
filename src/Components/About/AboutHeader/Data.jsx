@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BsSend } from "react-icons/bs";
+import { FaDownload } from 'react-icons/fa';
+import { IoSend } from 'react-icons/io5';
 
 const Data = () => {
   return (
     <div className="max-w-full px-4 text-center md:text-left md:px-0">
-      <h3 className="mb-2 font-serif text-xl font-semibold text-primary-light">Hello, I'm</h3>
-      <h1 className="mb-1 font-serif text-3xl font-bold md:text-5xl text-primary-light">
+      <h3 className="mb-2 font-serif text-xl font-semibold text-bgVariant">Hello, I'm</h3>
+      <h1 className="mb-1 font-serif text-3xl font-bold md:text-5xl text-bg">
         Aman Suryavanshi
           <svg width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"  className="inline-block ml-2">
             <path d="M25.4995 32.0305L31.3495 33.1555L36.1495 8.48051C36.4495 6.83051 35.3995 5.18051 33.8245 4.88051C32.1745 4.58051 30.5995 5.70551 30.2995 7.35551L25.4995 32.0305Z" fill="#FFDD67"></path>
@@ -21,22 +23,28 @@ const Data = () => {
             <path d="M46.2745 22.28C46.0495 21.83 45.7495 21.53 45.3745 21.23C45.4495 21.305 45.5245 21.38 45.5245 21.53C46.7995 24.08 42.6745 26.405 40.1995 29.405C38.1745 31.88 35.9245 33.83 34.7995 36.455C29.9995 47.93 16.0495 47.93 10.1995 42.68C15.5245 48.68 30.5245 49.28 35.5495 37.205C36.6745 34.58 38.9245 32.63 40.9495 30.155C43.4245 27.155 47.5495 24.755 46.2745 22.28ZM32.3245 28.13C27.4495 26.33 18.7495 29.63 19.9495 38.405C19.9495 30.23 27.3745 28.205 31.4245 28.205C32.0245 28.13 32.3245 28.13 32.3245 28.13Z" fill="#EBA352"></path>
         </svg>
       </h1>
-      <h3 className="relative pl-24 mb-4 font-serif text-lg font-light text-primary-light">
-      <span className="absolute left-0 top-3 w-16 h-0.5 bg-primary-light"></span>
+      <h3 className="relative pl-24 mb-4 font-serif text-lg font-light text-bg">
+      <span className="absolute left-0 top-3 w-20 h-0.5 bg-bgVariant"></span>
         A Tech Geek
       </h3>
-      <p className="max-w-lg mx-auto mb-8 text-sm text-justify md:mb-12 text-primary-light md:text-base">
+      <p className="max-w-lg mx-auto mb-8 text-sm text-justify md:mb-12 text-textColor md:text-base">
         To succeed in an environment of growth and excellence and earn a job which provides me job satisfaction and self-development and help me achieve personal as well as organization goals.
       </p>
       <div className="flex flex-col justify-center gap-4 md:flex-row md:gap-5 md:justify-start">
-        <Link to ="https://drive.google.com/file/d/1Xfv_tYMc9UiyYy3QqmPFadyi0xY-p2TI/view?usp=drive_link"
-           download className="flex items-center justify-center px-5 py-3 transition-all duration-300 border-2 shadow-sm cursor-pointer rounded-2xl shadow-primary-light bg-primary-bgColor text-primary-light border-primary-yellow hover:bg-primary-light hover:text-primary-bgColor hover:border-transparent">
-          Download CV
-        </Link>
+      <Link
+        to="https://drive.google.com/file/d/1Xfv_tYMc9UiyYy3QqmPFadyi0xY-p2TI/view?usp=drive_link"
+        className="inline-flex items-center px-6 py-2 font-semibold transition-all duration-300 border-2 rounded-full shadow-lg text-bg border-bg bg-primary hover:bg-primaryVariant hover:text-bg hover:scale-105 focus:outline-none"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <FaDownload className="w-5 h-5 mr-2" />
+        <span>Download CV</span>
+      </Link>
 
-        <Link to="/contact" className="flex items-center justify-center px-5 py-3 transition-all duration-300 border-2 shadow-sm cursor-pointer rounded-2xl shadow-primary-light bg-primary-yellow text-primary-bgColor border-primary-white hover:bg-primary-light hover:text-primary-bgColor hover:border-transparent">
+
+        <Link to="/contact"  className="inline-flex items-center px-5 py-1 font-semibold transition-all duration-300 border-2 rounded-full shadow-lg text-bg border-bg bg-primary hover:bg-primaryVariant hover:text-bg hover:scale-105 focus:outline-none">
+          <IoSend className="w-5 h-5 mr-2" />
           Say Hello
-          <BsSend className='ml-2 text-2xl text-primary-bgColor'/>
         </Link>
       </div>
     </div>

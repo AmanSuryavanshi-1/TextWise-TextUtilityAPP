@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import Sidebar from './Components/Sidebar';
 import { Outlet } from 'react-router-dom';
-import Navbar from './Components/Navbar';
-import LandingPage from './Pages/LandingaPage';
 
 const AppLayout = () => {
   const [isSidebarExpanded, setIsSidebarExpanded] = useState(false);
