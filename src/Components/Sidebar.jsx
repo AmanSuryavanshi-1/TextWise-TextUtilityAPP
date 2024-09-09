@@ -1,36 +1,56 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { FaEdit, FaTools, FaLanguage, FaMicrophone, FaRobot, FaStickyNote } from 'react-icons/fa';
-import { MdKeyboardArrowDown, MdSummarize, MdGrading, MdRecordVoiceOver, MdKeyboardVoice } from 'react-icons/md';
+import { MdKeyboardArrowDown, MdSummarize, MdGrading, MdRecordVoiceOver, MdKeyboardVoice, MdMenu, MdClose } from 'react-icons/md';
 
-const Sidebar = () => {
+const Sidebar = ({ onToggle }) => {
   const location = useLocation();
   const [dropdowns, setDropdowns] = useState({
     notes: false,
     transcribe: false,
     aiTexting: false,
   });
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
 
   const toggleDropdown = (key) => {
     setDropdowns(prev => ({ ...prev, [key]: !prev[key] }));
   };
 
-  const NavItem = ({ to, icon: Icon, children, onClick }) => (
+  const toggleExpand = () => {
+    setIsExpanded(!isExpanded);
+    onToggle(!isExpanded);
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      const mobile = window.innerWidth < 640;
+      setIsMobile(mobile);
+      if (mobile && isExpanded) {
+        setIsExpanded(false);
+        onToggle(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [onToggle, isExpanded]);
+
+  const NavItem = ({ to, icon: Icon, children }) => (
     <NavLink 
       to={to} 
       className={({ isActive }) => `
-        flex items-center px-3 py-1 text-sm transition-all duration-200
+        flex items-center px-4 py-2 text-sm transition-all duration-200 rounded-full
         ${isActive 
-          ? 'text-white bg-bg rounded-full shadow-inner border-b-2 border-white' 
-          : 'text-primaryVariant hover:text-white hover:bg-bg rounded-full'
+          ? 'bg-bg text-white shadow-md border-primaryVariant border-b-2' 
+          : 'text-primaryVariant hover:text-white hover:bg-primary'
         }
       `}
-      onClick={onClick}
     >
       {({ isActive }) => (
         <>
-          <Icon className={`w-4 h-4 mr-2 ${isActive ? 'text-white' : 'group-hover:text-white'}`} />
-          {children}
+          <Icon className={`w-5 h-5 ${isActive ? 'text-white' : ''} ${isExpanded ? 'mr-3' : ''}`} />
+          {isExpanded && <span>{children}</span>}
         </>
       )}
     </NavLink>
@@ -43,32 +63,41 @@ const Sidebar = () => {
         <div
           onClick={toggleOpen}
           className={`
-            flex items-center justify-between px-3 py-1 text-sm transition-all duration-200 cursor-pointer
+            flex items-center justify-between px-4 py-2 text-sm cursor-pointer transition-all duration-200 rounded-full
             ${active
-              ? 'text-white bg-bg rounded-full shadow-inner border-b-2 border-white'
-              : 'text-primaryVariant hover:text-white hover:bg-bg rounded-full'
+              ? 'bg-bg text-white shadow-md border-primaryVariant border-b-2' 
+              : 'text-primaryVariant hover:text-white hover:bg-primary'
             }
           `}
         >
           <div className="flex items-center">
-            <Icon className={`w-4 h-4 mr-2 ${active ? 'text-white' : 'group-hover:text-white'}`} />
-            <p>{title}</p>
+            <Icon className={`w-5 h-5 ${active ? 'text-white' : ''} ${isExpanded ? 'mr-3' : ''}`} />
+            {isExpanded && <span>{title}</span>}
           </div>
-          <MdKeyboardArrowDown className={`transform transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+          {isExpanded && (
+            <MdKeyboardArrowDown className={`transform transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+          )}
         </div>
-        <div className={`ml-4 overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-40' : 'max-h-0'}`}>
-          {children}
-        </div>
+        {isExpanded && (
+          <div className={`ml-4 overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-40' : 'max-h-0'}`}>
+            {children}
+          </div>
+        )}
       </div>
     );
   };
 
-  return (
-    <div className='bg-primaryVariant'>
-    <div className="flex rounded-r-3xl border-2 border-primaryVariant flex-col p-2 overflow-y-auto bg-bg scrollbar-thin scrollbar-thumb-primary scrollbar-track-transparent scroll-smooth w-[15vw] h-[94vh]">
-      <div className="flex flex-col flex-grow space-y-1">
+  const sidebarContent = (
+    <>
+      <div className="flex items-center justify-between p-4 mt-6">
+        <span className={`text-white font-bold ${isExpanded ? 'block' : 'hidden'}`}>Menu</span>
+        <button onClick={toggleExpand} className="p-2 text-white rounded-full hover:bg-primary">
+          {isExpanded ? <MdClose size={24} /> : <MdMenu size={24} />}
+        </button>
+      </div>
+      <div className="flex flex-col p-2 space-y-1">
         <NavItem to="texteditor" icon={FaEdit}>Editor</NavItem>
-        <NavItem to="text-toolkit" icon={FaTools}>Text Utils</NavItem>
+        <NavItem to="text-toolkit" icon={FaTools}>Text Toolkit</NavItem>
         <NavItem to="transliteration" icon={FaLanguage}>Transliteration</NavItem>
 
         <DropdownSection
@@ -105,9 +134,34 @@ const Sidebar = () => {
           <NavItem to="notes/z" icon={FaStickyNote}>Note 3</NavItem>
         </DropdownSection>
       </div>
-    </div>
-    </div>
+    </>
   );
-}
+
+  return (
+    <>
+      {/* Sidebar for all screen sizes */}
+      <div 
+        className={`
+          fixed inset-y-0 left-0 z-40 transition-all duration-300
+          ${isMobile 
+            ? (isExpanded ? 'w-[15vw]' : 'w-[5vw]') 
+            : (isExpanded ? 'w-[15vw]' : 'w-[5vw]')
+          }
+        `}
+      >
+        <div className={`h-full bg-primaryVariant rounded-r-[2rem] border-y-4 border-r-2 border-primaryVariant overflow-hidden ${isExpanded ? 'bg-opacity-90' : ''}`}>
+          <div className="h-full overflow-y-auto bg-bg scrollbar-thin scrollbar-thumb-primary scrollbar-track-transparent">
+            {sidebarContent}
+          </div>
+        </div>
+      </div>
+
+      {/* Overlay for mobile when sidebar is expanded */}
+      {isMobile && isExpanded && (
+        <div className="fixed inset-0 z-30 bg-black bg-opacity-50" onClick={toggleExpand}></div>
+      )}
+    </>
+  );
+};
 
 export default Sidebar;

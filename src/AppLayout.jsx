@@ -1,15 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Sidebar from './Components/Sidebar';
 import { Outlet } from 'react-router-dom';
+import Navbar from './Components/Navbar';
+import LandingPage from './Pages/LandingaPage';
 
 const AppLayout = () => {
+  const [isSidebarExpanded, setIsSidebarExpanded] = useState(false);
+
   return (
-    <div className="flex">
-        <Sidebar />
-      <main>
-        <Outlet/>
-      </main>
-    </div>
+      <div className="flex flex-1 overflow-hidden">
+        <Sidebar onToggle={setIsSidebarExpanded} />
+        <main className={`flex-1 overflow-hidden transition-all duration-300 ${isSidebarExpanded ? 'ml-[15vw]' : 'ml-[5vw]'}`}>
+            <Outlet />
+        </main>
+      </div>
   );
 }
 
