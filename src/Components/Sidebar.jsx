@@ -90,7 +90,7 @@ const Sidebar = ({ onToggle }) => {
   const sidebarContent = (
     <>
       <div className="flex items-center justify-between p-4 mt-6">
-        <span className={`text-white font-bold ${isExpanded ? 'block' : 'hidden'}`}>Menu</span>
+        <span className={`text-white font-bold font-serif ${isExpanded ? 'block' : 'hidden'}`}>Menu</span>
         <button onClick={toggleExpand} className="p-2 text-white rounded-full hover:bg-primary">
           {isExpanded ? <MdClose size={24} /> : <MdMenu size={24} />}
         </button>
