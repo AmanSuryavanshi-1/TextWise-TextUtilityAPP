@@ -149,7 +149,7 @@ const Sidebar = ({ onToggle }) => {
           }
         `}
       >
-        <div className={`h-full bg-primaryVariant rounded-r-[2rem] border-y-4 border-r-2 border-primaryVariant overflow-hidden ${isExpanded ? 'bg-opacity-90' : ''}`}>
+        <div className={`h-full bg-primaryVariant rounded-r-[2rem] border-primaryVariant overflow-hidden ${isExpanded ? 'bg-opacity-90' : ''}`}>
           <div className="h-full overflow-y-auto bg-bg scrollbar-thin scrollbar-thumb-primary scrollbar-track-transparent">
             {sidebarContent}
           </div>
