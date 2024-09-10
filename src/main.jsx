@@ -22,6 +22,7 @@ import Error from './Pages/Error';
 import LandingPage from './Pages/LandingaPage';
 import TextToolkit from './Components/SidebarComponents/TextToolkit';
 import ShimmerAbout from './Shimmer/ShimmerAbout';
+import ReportIssue from './Pages/ReportIssue';
 
 // const Layout = () => {
 //   return (
@@ -48,7 +49,7 @@ const router = createBrowserRouter([
             },
               { path: "contact", element: <Contact />},
               { path: "LandingPage", element: <LandingPage />},
-              // { path: "issue", element: <Issue />},
+              { path: "issue", element: <ReportIssue />},
               { path: "auth", element: <Auth />},
               {
                 path:'layout',
