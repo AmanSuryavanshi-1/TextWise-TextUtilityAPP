@@ -2,7 +2,7 @@ import React from 'react'
 
 const TextEditor = () => {
   return (
-    <div>
+    <div className='bg-primaryVariant h-[94vh]'>
       
     </div>
   )

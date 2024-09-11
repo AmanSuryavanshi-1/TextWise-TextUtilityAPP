@@ -96,7 +96,7 @@ const Sidebar = ({ onToggle }) => {
         </button>
       </div>
       <div className="flex flex-col p-2 space-y-1">
-        <NavItem to="texteditor" icon={FaEdit}>Editor</NavItem>
+        <NavItem to="editor" icon={FaEdit}>Editor</NavItem>
         <NavItem to="text-toolkit" icon={FaTools}>Text Toolkit</NavItem>
         <NavItem to="transliteration" icon={FaLanguage}>Transliteration</NavItem>
 
@@ -118,8 +118,8 @@ const Sidebar = ({ onToggle }) => {
           toggleOpen={() => toggleDropdown('aiTexting')}
           path="/ai-texting"
         >
-          <NavItem to="ai-texting/x" icon={MdSummarize}>Summarizer</NavItem>
-          <NavItem to="ai-texting/y" icon={MdGrading}>Grammar</NavItem>
+          <NavItem to="ai-texting/summarizer" icon={MdSummarize}>Summarizer</NavItem>
+          <NavItem to="ai-texting/grammar" icon={MdGrading}>Grammar</NavItem>
         </DropdownSection>
 
         <DropdownSection

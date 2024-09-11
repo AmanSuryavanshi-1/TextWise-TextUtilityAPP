@@ -23,6 +23,7 @@ import LandingPage from './Pages/LandingaPage';
 import TextToolkit from './Components/SidebarComponents/TextToolkit';
 import ShimmerAbout from './Shimmer/ShimmerAbout';
 import ReportIssue from './Pages/ReportIssue';
+import Grammar from './Components/SidebarComponents/Grammar';
 
 // const Layout = () => {
 //   return (
@@ -57,8 +58,9 @@ const router = createBrowserRouter([
                children: [ 
                   { path: "notes", element: <TakeNotes /> },
                   { path: "text-toolkit", element: <TextToolkit /> },
-                  { path: "summarizer", element: <Summarizer/>},
-                  { path: "aitexting", element: <AI_Texting/>},
+                  { path: "ai-texting", element: <AI_Texting/>},
+                  { path: "ai-texting/summarizer", element: <Summarizer/>},
+                  { path: "ai-texting/grammar", element: <Grammar />},
                   { path: "stt", element: <STT/> },
                   { path: "tts", element: <TTS/> },
                   { path: "transliteration", element: <Transliteration/>},
