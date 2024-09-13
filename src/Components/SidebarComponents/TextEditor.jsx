@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { FaQuestionCircle, FaUpload, FaDownload, FaTrash, FaCopy, FaUndo, FaRedo, FaSearch, FaFileDownload, FaAlignLeft } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Font = ReactQuill.Quill.import('formats/font');
 Font.whitelist = ['sans-serif', 'serif', 'monospace'];
@@ -182,6 +183,7 @@ const TextEditor = () => {
                   <li>Find and replace functionality</li>
                   <li>Undo/Redo changes</li>
                   <li>Download edited content</li>
+                  <li>Learn more on the <Link to="/" className="text-primary hover:underline"> landing page</Link>.</li>
                 </ul>
               </div>
             )}
@@ -204,14 +206,14 @@ const TextEditor = () => {
               <button 
                 key={index}
                 disabled={content.length === 0} 
-                className="flex items-center gap-1 px-3 py-1 text-sm font-semibold text-white transition shadow-md rounded-2xl bg-bgVariant duration-400 hover:bg-primary hover:text-text-color disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex items-center gap-2 px-4 py-1 text-sm font-semibold text-white transition shadow-md rounded-xl bg-bgVariant duration-400 hover:bg-primary hover:text-text-color disabled:opacity-50 disabled:cursor-not-allowed"
                 onClick={btn.onClick}
               >
                 <btn.icon className="text-lg" />{btn.text}
               </button>
             ))}
           </div>
-          <div className="quill-container" style={{ height: '65vh', display: 'flex', flexDirection: 'column' }}>
+          <div className="border-[3px] rounded-md bg-primary border-bg quill-container" style={{ height: '65vh', display: 'flex', flexDirection: 'column' }}>
             <ReactQuill
               ref={quillRef}
               theme="snow"
@@ -232,7 +234,7 @@ const TextEditor = () => {
             <div className="flex gap-3">
               <button 
                   onClick={toggleReadOnly} 
-                  className={`px-3 py-1 text-md font-bold rounded border-2 border-bg ${readOnly ? 'bg-primary text-bg' : 'bg-bg text-white'}`}
+                  className={`px-3 py-1 text-md font-bold rounded border-2 border-bg ${readOnly ? 'bg-primary text-bg hover:bg-primaryVariant' : 'bg-bg text-white hover:bg-bgVariant'}`}
                 >
                 {readOnly ? 'Read Only' : 'Editable'}
               </button>
