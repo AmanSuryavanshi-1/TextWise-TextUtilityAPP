@@ -181,7 +181,7 @@ const LandingPage = () => {
           </ul>
         </div>
 
-            <Link to="/layout/text-toolkit" className="block w-1/2 mx-auto mt-10">
+            <Link to="/layout/editor" className="block w-1/2 mx-auto mt-10">
                 <button className="relative w-full px-8 py-4 overflow-hidden text-lg font-semibold text-white transition-all duration-300 ease-in-out transform border-2 rounded-full shadow-lg group bg-bgVariant hover:shadow-xl border-bg">
                   <span className="absolute inset-0 flex items-center justify-center w-full h-full duration-300 -translate-x-full bg-bg group-hover:translate-x-0 ease">
                     <FaArrowRight className="w-6 h-6 text-white" />

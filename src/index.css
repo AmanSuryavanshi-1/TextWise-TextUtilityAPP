@@ -22,3 +22,97 @@
       transform: translateY(100px);
     }
   }
+
+  /* REACT QUILL EDITOR TOOLBAR STYLES */
+  .custom-quill-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .ql-toolbar.ql-snow {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    border: 1px solid #436850; /* bgVariant color for border */
+    background-color: #12372A; /* bg color for toolbar background */
+  }
+  
+  .ql-container.ql-snow {
+    flex-grow: 1;
+    overflow-y: auto;
+    border: 1px solid #436850; /* bgVariant color for border */
+    border-top: none; /* Remove top border as it's covered by toolbar */
+  }
+  
+  /* Custom scrollbar styles */
+  .ql-container.ql-snow {
+    scrollbar-width: thin;
+    scrollbar-color: #436850 #ADBC9F; /* thumb bgVariant, track primary */
+  }
+  
+  .ql-container.ql-snow::-webkit-scrollbar {
+    width: 2px; 
+  }
+  
+  .ql-container.ql-snow::-webkit-scrollbar-track {
+    background: #ADBC9F; /* primary color for track */
+  }
+  
+  .ql-container.ql-snow::-webkit-scrollbar-thumb {
+    background-color: #436850; /* bgVariant color for thumb */
+    border-radius: 4px;
+  }
+  
+  /* Existing toolbar styles */
+  .ql-toolbar.ql-snow .ql-formats {
+    margin-right: 15px;
+  }
+  
+  /* Make icons white */
+  .ql-toolbar.ql-snow .ql-stroke {
+    stroke: #FFFFFF !important; 
+  }
+  .ql-toolbar.ql-snow .ql-fill {
+    fill: #FFFFFF !important; /* White color for solid icons */
+  }
+  .ql-toolbar.ql-snow .ql-picker-label {
+    color: #FFFFFF !important; /* White color for dropdown text */
+  }
+  
+  /* Hover states for buttons */
+  .ql-toolbar.ql-snow button:hover,
+  .ql-toolbar.ql-snow .ql-picker-label:hover {
+    background-color: #436850; /* bgVariant color for hover background */
+  }
+  .ql-toolbar.ql-snow button:hover .ql-stroke,
+  .ql-toolbar.ql-snow button:hover .ql-fill {
+    stroke: #FBFADA !important; /* primaryVariant color for hover icon color */
+    fill: #ADBC9F !important; /* primaryVariant color for hover icon color */
+  }
+  
+  /* Style for active buttons */
+  .ql-toolbar.ql-snow .ql-active,
+  .ql-toolbar.ql-snow .ql-picker-label.ql-active {
+    background-color: #ADBC9F !important; /* primary color for active background */
+  }
+  .ql-toolbar.ql-snow .ql-active .ql-stroke,
+  .ql-toolbar.ql-snow .ql-picker-label.ql-active .ql-stroke {
+    stroke: #12372A !important; /* bg color for active icon color */
+  }
+  .ql-toolbar.ql-snow .ql-active .ql-fill,
+  .ql-toolbar.ql-snow .ql-picker-label.ql-active .ql-fill {
+    fill: #12372A !important; /* bg color for active icon color */
+  }
+  
+  /* Dropdown menu styles */
+  .ql-toolbar.ql-snow .ql-picker-options {
+    background-color: #12372A; /* bg color for dropdown background */
+    border-color: #436850; /* bgVariant color for dropdown border */
+  }
+  .ql-toolbar.ql-snow .ql-picker-options .ql-picker-item {
+    color: #FFFFFF; /* White color for dropdown items */
+  }
+  .ql-toolbar.ql-snow .ql-picker-options .ql-picker-item:hover {
+    background-color: #436850; /* bgVariant color for dropdown item hover */
+    color: #FBFADA; /* primaryVariant color for dropdown item hover text */
+  }

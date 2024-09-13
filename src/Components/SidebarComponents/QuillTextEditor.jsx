@@ -12,7 +12,7 @@ const Size = ReactQuill.Quill.import('formats/size');
 Size.whitelist = ['small', 'normal', 'large', 'huge'];
 ReactQuill.Quill.register(Size, true);
 
-const TextEditor = () => {
+const QuillTextEditor = () => {
   const [content, setContent] = useState('');
   const [wordCount, setWordCount] = useState(0);
   const [charCount, setCharCount] = useState(0);
@@ -213,7 +213,7 @@ const TextEditor = () => {
               </button>
             ))}
           </div>
-          <div className="border-[3px] rounded-md bg-primary border-bg quill-container" style={{ height: '65vh', display: 'flex', flexDirection: 'column' }}>
+          <div className="overflow-y-auto bg-white border-2 rounded-md scrollbar-thin scrollbar-thumb-bgVariant scrollbar-track-primary border-bg quill-container" style={{ height: '66vh', display: 'flex', flexDirection: 'column' }}>
             <ReactQuill
               ref={quillRef}
               theme="snow"
@@ -254,4 +254,4 @@ const TextEditor = () => {
   );
 };
 
-export default TextEditor;
+export default QuillTextEditor;

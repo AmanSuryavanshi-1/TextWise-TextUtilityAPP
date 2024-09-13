@@ -16,7 +16,6 @@ import AI_Texting from './Components/SidebarComponents/AI_Texting';
 import STT from './Components/SidebarComponents/STT';
 import TTS from './Components/SidebarComponents/TTS';
 import Transliteration from './Components/SidebarComponents/Translitration';
-import TextEditor from './Components/SidebarComponents/TextEditor';
 import Auth from './Pages/Auth';
 import Error from './Pages/Error';
 import LandingPage from './Pages/LandingaPage';
@@ -24,6 +23,7 @@ import TextToolkit from './Components/SidebarComponents/TextToolkit';
 import ShimmerAbout from './Shimmer/ShimmerAbout';
 import ReportIssue from './Pages/ReportIssue';
 import Grammar from './Components/SidebarComponents/Grammar';
+import QuillTextEditor from './Components/SidebarComponents/QuillTextEditor';
 
 // const Layout = () => {
 //   return (
@@ -64,7 +64,7 @@ const router = createBrowserRouter([
                   { path: "stt", element: <STT/> },
                   { path: "tts", element: <TTS/> },
                   { path: "transliteration", element: <Transliteration/>},
-                  { path: "editor", element: <TextEditor/>},
+                  { path: "editor", element: <QuillTextEditor/>},
               ],
               },
           ],
