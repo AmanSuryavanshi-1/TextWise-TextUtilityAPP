@@ -13,7 +13,6 @@ const GithubCalendar = () => {
             blockSize={12}
             blockMargin={5}
             fontSize={16}
-            color="bg-bgVariant"
         />
     </div>
 </div>

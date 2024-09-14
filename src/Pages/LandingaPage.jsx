@@ -5,29 +5,15 @@ import Footer from '../Components/Footer';
 
 // Importing images (assuming these imports are correct)
 import editor from '../../assets/Editor.jpg';
-// import notes from '../../Assets/NoteTaking.jpg';
-// import summarizer from '../../Assets/Summarizer.jpg';
-// import transcribe from '../../Assets/transcribe.jpg';
-// import transliteration from '../../Assets/Transliteration.jpg';
-// import youtube from '../../Assets/Youtube.jpg';
-// import TextToolkit from '../../Assets/TextToolkit.jpeg';
-// import RepoData from '../Components/About/RepoData';
+import notes from '../../Assets/NoteTaking.jpg';
+import summarizer from '../../Assets/Summarizer.jpg';
+import transcribe from '../../Assets/transcribe.jpg';
+import transliteration from '../../Assets/Transliteration.jpg';
+import youtube from '../../Assets/Youtube.jpg';
+import TextToolkit from '../../Assets/TextToolkit.jpeg';
+import RepoData from '../Components/About/RepoData';
 
 const LandingPage = () => {
-  const [repoData, setRepoData] = React.useState(null);
-
-  React.useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('https://api.github.com/repos/AmanSuryavanshi-1/TextWise-TextUtilityAPP');
-        const data = await response.json();
-        setRepoData(data);
-      } catch (error) {
-        console.error('Error fetching repo data:', error);
-      }
-    };
-    fetchData();
-  }, []);
 
   const cards = [
       { 
@@ -39,7 +25,7 @@ const LandingPage = () => {
         link: "/layout/editor"
       },
       { 
-        imgSrc: editor, 
+        imgSrc: notes, 
         alt: "User Notes", 
         title: "User Notes", 
         description: "Effortlessly create, organize, and format your notes using our user-friendly text editor. Streamline your thoughts into structured documents, making them easy to retrieve and manage. From quick to-dos to detailed documents, our notes tool helps keep everything in perfect order and accessible anytime.", 
@@ -47,7 +33,7 @@ const LandingPage = () => {
         link: "/layout/notes"
       },
       { 
-        imgSrc: editor, 
+        imgSrc: summarizer, 
         alt: "Summarization", 
         title: "Summarization", 
         description: "Quickly extract key insights from long texts with our advanced summarization tool. Save time by condensing large volumes of information into short, digestible summaries. Ideal for professionals and students alike, this tool transforms detailed content into a concise format without losing the essence of the material.", 
@@ -55,7 +41,7 @@ const LandingPage = () => {
         link: "/layout/summarizer"
       },
       { 
-        imgSrc: editor, 
+        imgSrc: transcribe, 
         alt: "Transcription", 
         title: "Transcription", 
         description: "Convert spoken words into text and vice versa seamlessly with our transcription tool. Ideal for meetings, lectures, interviews, and podcasts, this tool ensures that you never miss important details. Generate accurate transcripts in seconds, making it easy to review and share spoken content.", 
@@ -63,7 +49,7 @@ const LandingPage = () => {
         link: "/layout/stt"
       },
       { 
-        imgSrc: editor, 
+        imgSrc: transliteration, 
         alt: "Transliteration", 
         title: "Transliteration", 
         description: "Easily convert text between different languages while preserving the meaning and readability. Perfect for global communication, this tool breaks down language barriers by converting alphabets without altering the original message. Simplify cross-linguistic text conversions with our user-friendly transliteration feature.", 
@@ -71,7 +57,7 @@ const LandingPage = () => {
         link: "/layout/transliteration"
       },
       { 
-        imgSrc: editor, 
+        imgSrc: youtube, 
         alt: "Youtube Summarizer", 
         title: "Youtube Summarizer", 
         description: "Summarize YouTube videos in seconds. Get the key points and insights from any video without watching the full content. Ideal for students, professionals, or anyone in a hurry, this tool saves time by giving you an instant breakdown of long video content.", 
@@ -79,7 +65,7 @@ const LandingPage = () => {
         link: "/layout/summarizer"
       },
       { 
-        imgSrc: editor, 
+        imgSrc: TextToolkit, 
         alt: "Text Toolkit", 
         title: "Text Toolkit", 
         description: "Enhance your text using our comprehensive toolkit. Whether you need to convert text case, copy, replace, or clear content, our Text Toolkit has everything you need for text manipulation. Perfect for fast editing, our tool is designed to streamline and simplify your text-related tasks.", 
@@ -87,7 +73,7 @@ const LandingPage = () => {
         link: "/layout/text-toolkit"
       },
       { 
-        imgSrc: editor, 
+        imgSrc: TextToolkit, 
         alt: "Text Toolkit", 
         title: "Text Toolkit", 
         description: "Enhance your text using our comprehensive toolkit. Whether you need to convert text case, copy, replace, or clear content, our Text Toolkit has everything you need for text manipulation. Perfect for fast editing, our tool is designed to streamline and simplify your text-related tasks.", 
