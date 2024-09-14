@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { FaEdit, FaFileAlt, FaCamera, FaHeadphones, FaGlobe, FaYoutube, FaTools, FaArrowRight, FaUser, FaCalendarAlt, FaCodeBranch, FaGithub, FaStar, FaCode, FaRocket } from 'react-icons/fa';
+import { FaEdit, FaFileAlt, FaCamera, FaHeadphones, FaGlobe, FaYoutube, FaTools, FaArrowRight, FaUser, FaRocket } from 'react-icons/fa';
 import Footer from '../Components/Footer';
-import Skills from '../Components/About/Skills';
 
 // Importing images (assuming these imports are correct)
 import editor from '../../Assets/Editor.jpg';

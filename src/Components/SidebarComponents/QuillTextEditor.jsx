@@ -197,11 +197,11 @@ const QuillTextEditor = () => {
               { icon: FaUpload, text: "Uppercase", onClick: handleUppercase },
               { icon: FaDownload, text: "Lowercase", onClick: handleLowercase },
               { icon: FaAlignLeft, text: "Sentence Case", onClick: handleSentenceCase },
+              { icon: FaSearch, text: "Find & Replace", onClick: handleFindReplace },
               { icon: FaTrash, text: "Clear", onClick: handleClearContent },
               { icon: FaCopy, text: "Copy", onClick: handleCopy },
               { icon: FaUndo, text: "Undo", onClick: handleUndo },
               { icon: FaRedo, text: "Redo", onClick: handleRedo },
-              { icon: FaSearch, text: "Find & Replace", onClick: handleFindReplace },
             ].map((btn, index) => (
               <button 
                 key={index}

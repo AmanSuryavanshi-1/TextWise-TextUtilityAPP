@@ -42,7 +42,7 @@ const NavItem = ({ to, icon: Icon, children, onClick }) => (
                     <div className="items-center hidden space-x-1 md:flex">
                         <NavItem to="/" icon={FaHome}>Home</NavItem>
                         <NavItem to="/about" icon={FaInfoCircle}>About</NavItem>
-                        <NavItem to="/layout" icon={FaEdit}>Editor</NavItem>
+                        <NavItem to="/layout/editor" icon={FaEdit}>Editor</NavItem>
                     </div>
                 </div>
 
