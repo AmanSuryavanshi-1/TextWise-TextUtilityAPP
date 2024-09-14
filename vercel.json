@@ -1,14 +1,14 @@
 {
     "builds": [
       {
-        "src": "src/index.js",
+        "src": "src/main.jsx",
         "use": "@vercel/static-build"
       }
     ],
     "routes": [
       {
-        "src": "/Assets/(.*)",
-        "dest": "/src/Assets/$1"
+        "src": "/assets/(.*)",
+        "dest": "/assets/$1"
       }
     ]
   }
