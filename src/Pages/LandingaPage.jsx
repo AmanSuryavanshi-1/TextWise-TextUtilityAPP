@@ -5,7 +5,7 @@ import Footer from '../Components/Footer';
 
 // Importing images (assuming these imports are correct)
 import editor from '../../assets/Editor.jpg';
-import notes from '../../Assets/NoteTaking.jpg';
+// import notes from '../../Assets/NoteTaking.jpg';
 import summarizer from '../../Assets/Summarizer.jpg';
 import transcribe from '../../Assets/transcribe.jpg';
 import transliteration from '../../Assets/Transliteration.jpg';
@@ -39,7 +39,7 @@ const LandingPage = () => {
         link: "/layout/editor"
       },
       { 
-        imgSrc: notes, 
+        imgSrc: editor, 
         alt: "User Notes", 
         title: "User Notes", 
         description: "Effortlessly create, organize, and format your notes using our user-friendly text editor. Streamline your thoughts into structured documents, making them easy to retrieve and manage. From quick to-dos to detailed documents, our notes tool helps keep everything in perfect order and accessible anytime.", 
