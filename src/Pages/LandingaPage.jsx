@@ -101,7 +101,7 @@ const LandingPage = () => {
               className="flex flex-col overflow-hidden transition-all duration-300 rounded-lg shadow-lg hover:shadow-2xl group hover:-translate-y-5"
             >
               <div className="relative h-48 overflow-hidden">
-                <img loading='lazy' src={card.imgSrc} alt={card.alt} className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110" />
+                <img loading='eager' src={card.imgSrc} alt={card.alt} className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110" />
                 <div className="absolute inset-0 flex items-center justify-center transition-opacity opacity-0 bg-bgVariant bg-opacity-90 group-hover:opacity-100">
                   {card.icon}
                 </div>
