@@ -6,12 +6,12 @@ import Footer from '../Components/Footer';
 // Importing images (assuming these imports are correct)
 import editor from '../../assets/Editor.jpg';
 // import notes from '../../Assets/NoteTaking.jpg';
-import summarizer from '../../Assets/Summarizer.jpg';
-import transcribe from '../../Assets/transcribe.jpg';
-import transliteration from '../../Assets/Transliteration.jpg';
-import youtube from '../../Assets/Youtube.jpg';
-import TextToolkit from '../../Assets/TextToolkit.jpeg';
-import RepoData from '../Components/About/RepoData';
+// import summarizer from '../../Assets/Summarizer.jpg';
+// import transcribe from '../../Assets/transcribe.jpg';
+// import transliteration from '../../Assets/Transliteration.jpg';
+// import youtube from '../../Assets/Youtube.jpg';
+// import TextToolkit from '../../Assets/TextToolkit.jpeg';
+// import RepoData from '../Components/About/RepoData';
 
 const LandingPage = () => {
   const [repoData, setRepoData] = React.useState(null);
@@ -47,7 +47,7 @@ const LandingPage = () => {
         link: "/layout/notes"
       },
       { 
-        imgSrc: summarizer, 
+        imgSrc: editor, 
         alt: "Summarization", 
         title: "Summarization", 
         description: "Quickly extract key insights from long texts with our advanced summarization tool. Save time by condensing large volumes of information into short, digestible summaries. Ideal for professionals and students alike, this tool transforms detailed content into a concise format without losing the essence of the material.", 
@@ -55,7 +55,7 @@ const LandingPage = () => {
         link: "/layout/summarizer"
       },
       { 
-        imgSrc: transcribe, 
+        imgSrc: editor, 
         alt: "Transcription", 
         title: "Transcription", 
         description: "Convert spoken words into text and vice versa seamlessly with our transcription tool. Ideal for meetings, lectures, interviews, and podcasts, this tool ensures that you never miss important details. Generate accurate transcripts in seconds, making it easy to review and share spoken content.", 
@@ -63,7 +63,7 @@ const LandingPage = () => {
         link: "/layout/stt"
       },
       { 
-        imgSrc: transliteration, 
+        imgSrc: editor, 
         alt: "Transliteration", 
         title: "Transliteration", 
         description: "Easily convert text between different languages while preserving the meaning and readability. Perfect for global communication, this tool breaks down language barriers by converting alphabets without altering the original message. Simplify cross-linguistic text conversions with our user-friendly transliteration feature.", 
@@ -71,7 +71,7 @@ const LandingPage = () => {
         link: "/layout/transliteration"
       },
       { 
-        imgSrc: youtube, 
+        imgSrc: editor, 
         alt: "Youtube Summarizer", 
         title: "Youtube Summarizer", 
         description: "Summarize YouTube videos in seconds. Get the key points and insights from any video without watching the full content. Ideal for students, professionals, or anyone in a hurry, this tool saves time by giving you an instant breakdown of long video content.", 
@@ -79,7 +79,7 @@ const LandingPage = () => {
         link: "/layout/summarizer"
       },
       { 
-        imgSrc: TextToolkit, 
+        imgSrc: editor, 
         alt: "Text Toolkit", 
         title: "Text Toolkit", 
         description: "Enhance your text using our comprehensive toolkit. Whether you need to convert text case, copy, replace, or clear content, our Text Toolkit has everything you need for text manipulation. Perfect for fast editing, our tool is designed to streamline and simplify your text-related tasks.", 
@@ -87,7 +87,7 @@ const LandingPage = () => {
         link: "/layout/text-toolkit"
       },
       { 
-        imgSrc: TextToolkit, 
+        imgSrc: editor, 
         alt: "Text Toolkit", 
         title: "Text Toolkit", 
         description: "Enhance your text using our comprehensive toolkit. Whether you need to convert text case, copy, replace, or clear content, our Text Toolkit has everything you need for text manipulation. Perfect for fast editing, our tool is designed to streamline and simplify your text-related tasks.", 
