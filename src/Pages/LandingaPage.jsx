@@ -5,7 +5,7 @@ import Footer from '../Components/Footer';
 
 // Importing images (assuming these imports are correct)
 import editor from '../../assets/Editor.jpg';
-import notes from '../../Assets/Notes.jpg';
+import notes from '../../Assets/NoteTaking.jpg';
 import summarizer from '../../Assets/Summarizer.jpg';
 import transcribe from '../../Assets/transcribe.jpg';
 import transliteration from '../../Assets/Transliteration.jpg';
