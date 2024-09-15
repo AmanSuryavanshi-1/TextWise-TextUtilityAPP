@@ -24,6 +24,7 @@ import ShimmerAbout from './Shimmer/ShimmerAbout';
 import ReportIssue from './Pages/ReportIssue';
 import Grammar from './Components/SidebarComponents/Grammar';
 import QuillTextEditor from './Components/SidebarComponents/QuillTextEditor';
+import ExcaliDraw from './Components/SidebarComponents/ExcaliDraw';
 
 // const Layout = () => {
 //   return (
@@ -65,6 +66,7 @@ const router = createBrowserRouter([
                   { path: "tts", element: <TTS/> },
                   { path: "transliteration", element: <Transliteration/>},
                   { path: "editor", element: <QuillTextEditor/>},
+                  { path: "excalidraw", element: <ExcaliDraw/>},
               ],
               },
           ],

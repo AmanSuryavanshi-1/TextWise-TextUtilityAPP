@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { FaEdit, FaTools, FaLanguage, FaMicrophone, FaRobot, FaStickyNote } from 'react-icons/fa';
+import { FaEdit, FaTools, FaLanguage, FaMicrophone, FaRobot, FaStickyNote, FaPencilRuler } from 'react-icons/fa';
 import { MdKeyboardArrowDown, MdSummarize, MdGrading, MdRecordVoiceOver, MdKeyboardVoice, MdMenu, MdClose } from 'react-icons/md';
 
 const Sidebar = ({ onToggle }) => {
@@ -98,6 +98,7 @@ const Sidebar = ({ onToggle }) => {
       <div className="flex flex-col p-2 space-y-1">
         <NavItem to="editor" icon={FaEdit}>Editor</NavItem>
         <NavItem to="text-toolkit" icon={FaTools}>Text Toolkit</NavItem>
+        <NavItem to="excalidraw" icon={FaPencilRuler}>ExcaliDraw</NavItem>
         <NavItem to="transliteration" icon={FaLanguage}>Transliteration</NavItem>
 
         <DropdownSection

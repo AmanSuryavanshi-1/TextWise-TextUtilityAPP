@@ -163,10 +163,10 @@ const QuillTextEditor = () => {
   const readingTime = (0.008 * wordCount).toFixed(2);
 
   return (
-    <div className="p-4 overflow-hidden font-sans bg-primaryVariant dark:bg-bg dark:text-primary max-md:overflow-auto">
+    <div className="p-3 overflow-hidden font-sans bg-primaryVariant dark:bg-bg dark:text-primary max-md:overflow-auto">
       <div className="relative flex flex-col items-start justify-between gap-2 mb-1 md:gap-2 md:flex-row md:items-center">
         <div className="flex items-center">
-          <h1 className="font-serif text-4xl font-bold sm:text-3xl text-bg dark:text-primary">Comprehensive Text Editor</h1>
+          <h1 className="font-serif text-3xl font-bold sm:text-2xl text-bg dark:text-primary">Comprehensive Text Editor</h1>
           <div 
             className="relative ml-2"
             onMouseEnter={() => setShowPopup(true)}
@@ -190,7 +190,7 @@ const QuillTextEditor = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-6 mt-3">
+      <div className="flex flex-col gap-6 mt-1">
         <div className="flex flex-col w-full">
           <div className="flex flex-wrap gap-2 mb-3">
             {[
@@ -213,7 +213,7 @@ const QuillTextEditor = () => {
               </button>
             ))}
           </div>
-          <div className="overflow-y-auto bg-white border-2 rounded-md scrollbar-thin scrollbar-thumb-bgVariant scrollbar-track-primary border-bg quill-container" style={{ height: '66vh', display: 'flex', flexDirection: 'column' }}>
+          <div className="overflow-y-auto bg-white border-2 rounded-md scrollbar-thin scrollbar-thumb-bgVariant scrollbar-track-primary border-bg quill-container" style={{ height: '69vh', display: 'flex', flexDirection: 'column' }}>
             <ReactQuill
               ref={quillRef}
               theme="snow"
