@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 const ExcaliDraw = () => {
   const [showPopup, setShowPopup] = useState(false);
-  const [readOnly, setReadOnly] = useState(false);
 
   return (
     <div className="p-3 overflow-hidden font-sans bg-primaryVariant dark:bg-bg dark:text-primary max-md:overflow-auto">
@@ -31,7 +30,7 @@ const ExcaliDraw = () => {
         </div>
       </div>
       <div className="overflow-y-auto bg-white border-2 rounded-md scrollbar-thin scrollbar-thumb-bgVariant scrollbar-track-primary border-bg" style={{ height: '83vh' }}>
-        <Excalidraw viewModeEnabled={readOnly} />
+        <Excalidraw />
       </div>
     </div>
   );
