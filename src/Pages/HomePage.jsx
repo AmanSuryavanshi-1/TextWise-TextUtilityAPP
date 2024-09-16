@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../Components/Navbar';
 import { Outlet, useLocation } from 'react-router-dom';
-import LandingPage from './LandingaPage';
+import LandingPage from './LandingPage';
 
 const HomePage = () => {
   const location = useLocation();

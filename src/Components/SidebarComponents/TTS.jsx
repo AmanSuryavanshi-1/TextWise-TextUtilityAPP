@@ -8,17 +8,14 @@ const TTS = () => {
   const [isPaused, setIsPaused] = useState(false);
   const [voices, setVoices] = useState([]);
   const [selectedVoice, setSelectedVoice] = useState(null);
-  const [pitch, setPitch] = useState(1);
-  const [rate, setRate] = useState(1);
   const [volume, setVolume] = useState(1);
-  const [wordCount, setWordCount] = useState(0);
-  const [charCount, setCharCount] = useState(0);
+  const [readingTime, setReadingTime] = useState(0);
   const [showPopup, setShowPopup] = useState(false);
   const utteranceRef = useRef(null);
 
   useEffect(() => {
     const loadVoices = () => {
-      const availableVoices = window.speechSynthesis.getVoices();
+      const availableVoices = window.speechSynthesis.getVoices().filter(voice => voice.lang.startsWith('en-'));
       setVoices(availableVoices);
       if (!selectedVoice && availableVoices.length > 0) {
         setSelectedVoice(availableVoices[0]);
@@ -31,29 +28,29 @@ const TTS = () => {
     }
   }, [selectedVoice]);
 
-  const updateCounts = useCallback(() => {
-    setWordCount(text.trim() ? text.trim().split(/\s+/).length : 0);
-    setCharCount(text.length);
+  const updateReadingTime = useCallback(() => {
+    const wordsPerMinute = 150; // Average reading speed
+    const wordCount = text.trim().split(/\s+/).length;
+    const minutes = Math.ceil(wordCount / wordsPerMinute);
+    setReadingTime(minutes);
   }, [text]);
 
   useEffect(() => {
-    updateCounts();
-  }, [text, updateCounts]);
+    updateReadingTime();
+  }, [text, updateReadingTime]);
 
   const createUtterance = useCallback(() => {
     const newUtterance = new SpeechSynthesisUtterance(text);
     if (selectedVoice) {
       newUtterance.voice = selectedVoice;
     }
-    newUtterance.pitch = pitch;
-    newUtterance.rate = rate;
     newUtterance.volume = volume;
     newUtterance.onend = () => {
       setIsSpeaking(false);
       setIsPaused(false);
     };
     utteranceRef.current = newUtterance;
-  }, [text, selectedVoice, pitch, rate, volume]);
+  }, [text, selectedVoice, volume]);
 
   useEffect(() => {
     createUtterance();
@@ -98,10 +95,10 @@ const TTS = () => {
   };
 
   return (
-    <div className="p-3 overflow-hidden font-sans bg-primaryVariant dark:bg-bg dark:text-primary max-md:overflow-auto">
+    <div className="p-3 overflow-hidden h-[94vh] font-sans bg-primaryVariant dark:bg-bg dark:text-primary max-md:overflow-auto">
       <div className="relative flex flex-col items-start justify-between gap-2 mb-1 md:gap-2 md:flex-row md:items-center">
         <div className="flex items-center">
-          <h1 className="font-serif text-3xl font-bold sm:text-2xl text-bg dark:text-primary">Enhanced Text to Speech</h1>
+          <h1 className="font-serif text-3xl font-bold sm:text-2xl text-bg dark:text-primary">Text to Speech</h1>
           <div 
             className="relative ml-2"
             onMouseEnter={() => setShowPopup(true)}
@@ -112,8 +109,8 @@ const TTS = () => {
               <div className="absolute left-0 z-10 p-4 text-sm text-left bg-white rounded-lg shadow-lg w-72 text-bg dark:bg-bg-variant dark:text-primary hover:cursor-default">
                 <p><strong>Enhanced Text to Speech</strong> allows you to convert text to speech with various customization options.</p>
                 <ul className="list-disc list-inside">
-                  <li>Choose from available voices</li>
-                  <li>Adjust pitch, rate, and volume</li>
+                  <li>Choose from available English voices</li>
+                  <li>Adjust volume</li>
                   <li>Play, pause, and stop speech</li>
                   <li>Learn more on the <Link to="/" className="text-primary hover:underline">landing page</Link>.</li>
                 </ul>
@@ -124,7 +121,7 @@ const TTS = () => {
       </div>
       <div className="flex flex-col gap-6 mt-1">
         <div className="flex flex-col w-full">
-          <div className="overflow-y-auto bg-white border-2 rounded-md scrollbar-thin scrollbar-thumb-bgVariant scrollbar-track-primary border-bg" style={{ height: '69vh' }}>
+          <div className="overflow-y-auto bg-white border-2 rounded-md scrollbar-thin scrollbar-thumb-bgVariant scrollbar-track-primary border-bg" style={{ height: '77vh' }}>
             <textarea
               className="w-full h-full p-4 resize-none focus:outline-none"
               placeholder="Enter text to convert to speech..."
@@ -132,28 +129,24 @@ const TTS = () => {
               onChange={handleInputChange}
             />
           </div>
-          <div className="flex flex-wrap gap-2 mb-3">
-            {[ 
-              { icon: FaPlay, text: "Play", onClick: speakText, disabled: isSpeaking && !isPaused },
-              { icon: isPaused ? FaPlay : FaPause, text: isPaused ? "Resume" : "Pause", onClick: pauseSpeech, disabled: !isSpeaking },
-              { icon: FaStop, text: "Stop", onClick: stopSpeech, disabled: !isSpeaking && !isPaused },
-            ].map((btn, index) => (
-              <button 
-                key={index}
-                disabled={btn.disabled}
-                className="flex items-center gap-2 px-4 py-1 text-sm font-semibold text-white transition shadow-md rounded-xl bg-bgVariant duration-400 hover:bg-primary hover:text-text-color disabled:opacity-50 disabled:cursor-not-allowed"
-                onClick={btn.onClick}
-              >
-                <btn.icon className="text-lg" />{btn.text}
-              </button>
-            ))}
-          </div>
           <div className="flex flex-wrap items-center justify-between gap-4 mt-3 text-sm">
-            <div className="flex flex-wrap gap-3">
-              <span className="px-4 py-1 rounded-md bg-bg text-primary">Words: {wordCount}</span>
-              <span className="px-4 py-1 rounded-md bg-bg text-primary">Characters: {charCount}</span>
+            <div className="flex flex-wrap gap-2">
+              {[ 
+                { icon: FaPlay, text: "Play", onClick: speakText, disabled: isSpeaking && !isPaused },
+                { icon: isPaused ? FaPlay : FaPause, text: isPaused ? "Resume" : "Pause", onClick: pauseSpeech, disabled: !isSpeaking },
+                { icon: FaStop, text: "Stop", onClick: stopSpeech, disabled: !isSpeaking && !isPaused },
+              ].map((btn, index) => (
+                <button 
+                  key={index}
+                  disabled={btn.disabled}
+                  className="flex items-center gap-2 px-4 py-1 text-sm font-semibold text-white transition shadow-md rounded-xl bg-bgVariant duration-400 hover:bg-primary hover:text-text-color disabled:opacity-50 disabled:cursor-not-allowed"
+                  onClick={btn.onClick}
+                >
+                  <btn.icon className="text-lg" />{btn.text}
+                </button>
+              ))}
             </div>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap items-center gap-3">
               <select 
                 className="px-3 py-1 text-sm font-semibold rounded-md bg-bg text-primary"
                 value={selectedVoice ? selectedVoice.name : ''}
@@ -165,6 +158,9 @@ const TTS = () => {
                   </option>
                 ))}
               </select>
+              <span className="px-4 py-1 rounded-md bg-bg text-primary">
+                Reading Time: {readingTime} min
+              </span>
               <div className="flex items-center gap-2">
                 <FaVolumeDown className="text-lg" />
                 <input

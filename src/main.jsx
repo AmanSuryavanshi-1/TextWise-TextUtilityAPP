@@ -15,16 +15,19 @@ import Summarizer from './Components/SidebarComponents/Summarizer';
 import AI_Texting from './Components/SidebarComponents/AI_Texting';
 import STT from './Components/SidebarComponents/STT';
 import TTS from './Components/SidebarComponents/TTS';
-import Transliteration from './Components/SidebarComponents/Translitration';
+import Transliteration from './Components/SidebarComponents/Transliteration';
 import Auth from './Pages/Auth';
 import Error from './Pages/Error';
-import LandingPage from './Pages/LandingaPage';
+import LandingPage from './Pages/LandingPage';
 import TextToolkit from './Components/SidebarComponents/TextToolkit';
 import ShimmerAbout from './Shimmer/ShimmerAbout';
 import ReportIssue from './Pages/ReportIssue';
 import Grammar from './Components/SidebarComponents/Grammar';
 import QuillTextEditor from './Components/SidebarComponents/QuillTextEditor';
 import ExcaliDraw from './Components/SidebarComponents/ExcaliDraw';
+
+import 'regenerator-runtime/runtime';
+
 
 // const Layout = () => {
 //   return (

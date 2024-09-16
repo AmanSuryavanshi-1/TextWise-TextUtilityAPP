@@ -20,13 +20,18 @@
     "react-icons": "^5.3.0",
     "react-quill": "^2.0.0",
     "react-router-dom": "^6.26.1",
-    "tailwind-scrollbar": "^3.1.0"
+    "react-speech-recognition": "^3.10.0",
+    "regenerator-runtime": "^0.14.1",
+    "tailwind-scrollbar": "^3.1.0",
+    "update": "^0.7.4"
   },
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.25.4",
     "@eslint/config-array": "^0.18.0",
     "@eslint/js": "^9.9.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "@types/regenerator-runtime": "^0.13.7",
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.20",
     "eslint": "^8.57.0",
@@ -38,6 +43,7 @@
     "postcss": "^8.4.41",
     "rimraf": "^6.0.1",
     "tailwindcss": "^3.4.10",
-    "vite": "^5.4.1"
+    "vite": "^5.4.1",
+    "vite-plugin-node-polyfills": "^0.22.0"
   }
 }
