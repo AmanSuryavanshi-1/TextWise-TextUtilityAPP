@@ -62,7 +62,7 @@ const LandingPage = () => {
         link: "/layout/summarizer"
       },
       { 
-        imgSrc: Youtube, 
+        imgSrc: TextToolkit, 
         alt: "Text Toolkit", 
         title: "Text Toolkit", 
         description: "Enhance your text using our comprehensive toolkit. Whether you need to convert text case, copy, replace, or clear content, our Text Toolkit has everything you need for text manipulation. Perfect for fast editing, our tool is designed to streamline and simplify your text-related tasks.", 
