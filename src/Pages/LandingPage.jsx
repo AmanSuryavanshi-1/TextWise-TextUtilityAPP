@@ -8,7 +8,7 @@ const LandingPage = () => {
 
   const cards = [
       { 
-        imgSrc: '/assets/Editor.jpg', 
+        imgSrc: '../../assets/Editor.jpg', 
         alt: "Playground", 
         title: "Playground", 
         description: "Experience a versatile text editor combined with a collaborative whiteboard. Create, edit, and brainstorm ideas in real-time with your team. Whether you are drafting documents, collaborating on a project, or sketching ideas, the Playground is your all-in-one solution for seamless teamwork.", 
@@ -16,7 +16,7 @@ const LandingPage = () => {
         link: "/layout/editor"
       },
       { 
-        imgSrc: "/assets/NoteTaking.jpg", 
+        imgSrc: "../../assets/NoteTaking.jpg", 
         alt: "User Notes", 
         title: "User Notes", 
         description: "Effortlessly create, organize, and format your notes using our user-friendly text editor. Streamline your thoughts into structured documents, making them easy to retrieve and manage. From quick to-dos to detailed documents, our notes tool helps keep everything in perfect order and accessible anytime.", 
@@ -24,7 +24,7 @@ const LandingPage = () => {
         link: "/layout/notes"
       },
       { 
-        imgSrc: "/assets/Summarizer.jpg", 
+        imgSrc: "../../assets/Summarizer.jpg", 
         alt: "Summarization", 
         title: "Summarization", 
         description: "Quickly extract key insights from long texts with our advanced summarization tool. Save time by condensing large volumes of information into short, digestible summaries. Ideal for professionals and students alike, this tool transforms detailed content into a concise format without losing the essence of the material.", 
@@ -32,7 +32,7 @@ const LandingPage = () => {
         link: "/layout/summarizer"
       },
       { 
-        imgSrc: "/assets/transcribe.jpg", 
+        imgSrc: "../../assets/transcribe.jpg", 
         alt: "Transcription", 
         title: "Transcription", 
         description: "Convert spoken words into text and vice versa seamlessly with our transcription tool. Ideal for meetings, lectures, interviews, and podcasts, this tool ensures that you never miss important details. Generate accurate transcripts in seconds, making it easy to review and share spoken content.", 
@@ -40,7 +40,7 @@ const LandingPage = () => {
         link: "/layout/stt"
       },
       { 
-        imgSrc: '/assets/Transliteration.jpg', 
+        imgSrc: '../../assets/Transliteration.jpg', 
         alt: "Transliteration", 
         title: "Transliteration", 
         description: "Easily convert text between different languages while preserving the meaning and readability. Perfect for global communication, this tool breaks down language barriers by converting alphabets without altering the original message. Simplify cross-linguistic text conversions with our user-friendly transliteration feature.", 
@@ -48,7 +48,7 @@ const LandingPage = () => {
         link: "/layout/transliteration"
       },
       { 
-        imgSrc: "/assets/Summarizer.jpg", 
+        imgSrc: "../../assets/Youtube.jpg", 
         alt: "Youtube Summarizer", 
         title: "Youtube Summarizer", 
         description: "Summarize YouTube videos in seconds. Get the key points and insights from any video without watching the full content. Ideal for students, professionals, or anyone in a hurry, this tool saves time by giving you an instant breakdown of long video content.", 
@@ -56,7 +56,7 @@ const LandingPage = () => {
         link: "/layout/summarizer"
       },
       { 
-        imgSrc: "/assets/TextToolkit.jpeg", 
+        imgSrc: "../../assets/TextToolkit.jpeg", 
         alt: "Text Toolkit", 
         title: "Text Toolkit", 
         description: "Enhance your text using our comprehensive toolkit. Whether you need to convert text case, copy, replace, or clear content, our Text Toolkit has everything you need for text manipulation. Perfect for fast editing, our tool is designed to streamline and simplify your text-related tasks.", 
@@ -64,7 +64,7 @@ const LandingPage = () => {
         link: "/layout/text-toolkit"
       },
       { 
-        imgSrc: "/assets/TextToolkit.jpeg", 
+        imgSrc: "../../assets/NoteTaking.jpg", 
         alt: "Text Toolkit", 
         title: "Text Toolkit", 
         description: "Enhance your text using our comprehensive toolkit. Whether you need to convert text case, copy, replace, or clear content, our Text Toolkit has everything you need for text manipulation. Perfect for fast editing, our tool is designed to streamline and simplify your text-related tasks.", 
