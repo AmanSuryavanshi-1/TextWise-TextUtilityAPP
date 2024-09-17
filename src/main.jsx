@@ -1,6 +1,6 @@
-import React, { Suspense } from 'react'
-// import 'regenerator-runtime/runtime'  // For speech to text
+import 'regenerator-runtime/runtime'  // For speech to text must be at top
 
+import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 // import App from './App.jsx'
 import './index.css'
@@ -26,7 +26,6 @@ import Grammar from './Components/SidebarComponents/Grammar';
 import QuillTextEditor from './Components/SidebarComponents/QuillTextEditor';
 import ExcaliDraw from './Components/SidebarComponents/ExcaliDraw';
 
-import 'regenerator-runtime/runtime';
 
 
 // const Layout = () => {

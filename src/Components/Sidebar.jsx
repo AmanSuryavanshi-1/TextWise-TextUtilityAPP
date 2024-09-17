@@ -101,27 +101,27 @@ const Sidebar = ({ onToggle }) => {
         <NavItem to="excalidraw" icon={FaPencilRuler}>ExcaliDraw</NavItem>
         <NavItem to="transliteration" icon={FaLanguage}>Transliteration</NavItem>
 
-        <DropdownSection
+        {/* <DropdownSection
           title="Transcribe"
           icon={FaMicrophone}
           isOpen={dropdowns.transcribe}
           toggleOpen={() => toggleDropdown('transcribe')}
           path="/transcribe"
-        >
+        > */}
           <NavItem to="stt" icon={MdKeyboardVoice}>Speech➜Text</NavItem>
           <NavItem to="tts" icon={MdRecordVoiceOver}>Text➜Speech</NavItem>
-        </DropdownSection>
+        {/* </DropdownSection> */}
 
-        <DropdownSection
+        {/* <DropdownSection
           title="AI Texting"
           icon={FaRobot}
           isOpen={dropdowns.aiTexting}
           toggleOpen={() => toggleDropdown('aiTexting')}
           path="/ai-texting"
-        >
+        > */}
           <NavItem to="ai-texting/summarizer" icon={MdSummarize}>Summarizer</NavItem>
           <NavItem to="ai-texting/grammar" icon={MdGrading}>Grammar</NavItem>
-        </DropdownSection>
+        {/* </DropdownSection> */}
 
         <DropdownSection
           title="Notes"

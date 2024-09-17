@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { FaMicrophone, FaMicrophoneSlash, FaCopy, FaTrash, FaQuestionCircle } from 'react-icons/fa';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import { Link } from 'react-router-dom';
+import 'regenerator-runtime/runtime';
 
 const STT = () => {
   const {
