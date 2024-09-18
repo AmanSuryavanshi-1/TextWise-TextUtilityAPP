@@ -100,6 +100,7 @@ const Sidebar = ({ onToggle }) => {
         <NavItem to="text-toolkit" icon={FaTools}>Text Toolkit</NavItem>
         <NavItem to="excalidraw" icon={FaPencilRuler}>ExcaliDraw</NavItem>
         <NavItem to="transliteration" icon={FaLanguage}>Transliteration</NavItem>
+        <NavItem to="translation" icon={FaLanguage}>Translation</NavItem>
 
         {/* <DropdownSection
           title="Transcribe"

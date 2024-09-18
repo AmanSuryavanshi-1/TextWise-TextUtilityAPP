@@ -25,6 +25,7 @@ import ReportIssue from './Pages/ReportIssue';
 import Grammar from './Components/SidebarComponents/Grammar';
 import QuillTextEditor from './Components/SidebarComponents/QuillTextEditor';
 import ExcaliDraw from './Components/SidebarComponents/ExcaliDraw';
+import Translation from './Components/SidebarComponents/Translation';
 
 
 
@@ -67,6 +68,7 @@ const router = createBrowserRouter([
                   { path: "stt", element: <STT/> },
                   { path: "tts", element: <TTS/> },
                   { path: "transliteration", element: <Transliteration/>},
+                  { path: "translation", element: <Translation/>},
                   { path: "editor", element: <QuillTextEditor/>},
                   { path: "excalidraw", element: <ExcaliDraw/>},
               ],
