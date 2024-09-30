@@ -72,5 +72,4 @@ const Transliteration = () => {
     </div>
   );
 };
-
 export default Transliteration;
