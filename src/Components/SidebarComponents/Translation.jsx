@@ -13,9 +13,22 @@ const Translation = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const textAreaRef = useRef(null);
 
-  const languages = {
-    en: 'English',
+  const nationalLanguages = {
     hi: 'Hindi',
+    bn: 'Bengali',
+    te: 'Telugu',
+    ta: 'Tamil',
+    mr: 'Marathi',
+    ur: 'Urdu',
+    gu: 'Gujarati',
+    kn: 'Kannada',
+    ml: 'Malayalam',
+    pa: 'Punjabi',
+    sa: 'Sanskrit',
+  };
+
+  const internationalLanguages = {
+    en: 'English',
     es: 'Spanish',
     fr: 'French',
     de: 'German',
@@ -89,6 +102,14 @@ const Translation = () => {
     setTranslatedText('');
   };
 
+  const renderLanguageOptions = (languages, label) => (
+    <optgroup label={label}>
+      {Object.entries(languages).map(([code, name]) => (
+        <option key={code} value={code}>{name}</option>
+      ))}
+    </optgroup>
+  );
+
   return (
     <div className="p-3 h-[94vh] overflow-y-auto font-sans bg-primaryVariant dark:bg-bg dark:text-primary">
       <div className="relative flex flex-col items-start justify-between gap-2 mb-2 md:gap-2 md:flex-row md:items-center">
@@ -105,10 +126,10 @@ const Translation = () => {
             {showPopup && (
               <div className="absolute left-0 z-10 p-4 text-sm text-left bg-white rounded-lg shadow-lg w-72 text-bg dark:bg-bg-variant dark:text-primary hover:cursor-default">
                 <p>
-                  <strong>Translation Tool</strong> converts text from one language to another:
+                  <strong>Translation Tool</strong> converts text between languages:
                 </p>
                 <ul className="list-disc list-inside">
-                  <li>Supports multiple languages</li>
+                  <li>Supports national and international languages</li>
                   <li>Real-time translation using MyMemory API</li>
                   <li>Copy translated text</li>
                   <li>Word count display</li>
@@ -124,13 +145,12 @@ const Translation = () => {
           <div className="w-full md:w-1/2">
             <div className="flex justify-between mb-2">
               <select
-                className="px-3 py-1 text-sm font-semibold rounded-md bg-bg text-primary"
+                className="px-3 py-1 text-sm font-semibold rounded-md bg-bg text-primary max-w-[200px]"
                 value={sourceLanguage}
                 onChange={(e) => setSourceLanguage(e.target.value)}
               >
-                {Object.entries(languages).map(([code, name]) => (
-                  <option key={code} value={code}>{name}</option>
-                ))}
+                {renderLanguageOptions(internationalLanguages, 'International')}
+                {renderLanguageOptions(nationalLanguages, 'National')}
               </select>
             </div>
             <textarea
@@ -142,17 +162,15 @@ const Translation = () => {
             />
           </div>
           
-                    
           <div className="w-full md:w-1/2">
             <div className="flex justify-between mb-2">
               <select
-                className="px-3 py-1 text-sm font-semibold rounded-md bg-bg text-primary"
+                className="px-3 py-1 text-sm font-semibold rounded-md bg-bg text-primary max-w-[200px]"
                 value={targetLanguage}
                 onChange={(e) => setTargetLanguage(e.target.value)}
               >
-                {Object.entries(languages).map(([code, name]) => (
-                  <option key={code} value={code}>{name}</option>
-                ))}
+                {renderLanguageOptions(internationalLanguages, 'International')}
+                {renderLanguageOptions(nationalLanguages, 'National')}
               </select>
             </div>
             <textarea
@@ -204,6 +222,12 @@ const Translation = () => {
               <FaExchangeAlt /> Swap
             </button>
           </div>
+        </div>
+
+        <div className="flex justify-end mt-2">
+          <span className="px-4 py-1 text-sm font-semibold rounded-xl bg-bg text-primary">
+            Word Count: {wordCount}
+          </span>
         </div>
       </div>
     </div>
