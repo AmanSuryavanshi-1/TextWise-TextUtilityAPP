@@ -212,7 +212,7 @@ const Translation = () => {
             </div>
             <textarea
               ref={textAreaRef}
-              className="w-full h-[65vh] p-4 bg-white border-2 rounded-md scrollbar-thin scrollbar-thumb-bgVariant scrollbar-track-primary border-bg resize-none"
+              className="w-full h-[63vh] p-4 bg-white border-2 rounded-md scrollbar-thin scrollbar-thumb-bgVariant scrollbar-track-primary border-bg resize-none"
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
               placeholder="Type here to translate..."
@@ -232,7 +232,7 @@ const Translation = () => {
               </select>
             </div>
             <textarea
-               className="w-full h-[65vh] p-4 bg-white border-2 rounded-md scrollbar-thin scrollbar-thumb-bgVariant scrollbar-track-primary border-bg resize-none"
+               className="w-full h-[63vh] p-4 bg-white border-2 rounded-md scrollbar-thin scrollbar-thumb-bgVariant scrollbar-track-primary border-bg resize-none"
               value={translatedText}
               readOnly
               placeholder="Translated text will appear here..."
@@ -240,8 +240,12 @@ const Translation = () => {
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center justify-between gap-4 mx-5 mt-4 text-sm">
+        <div className="flex flex-wrap items-center justify-between gap-4 mx-5 mt-1 text-sm">
           <div className="flex flex-wrap gap-3">
+              <div className="flex items-center gap-2 px-4 py-2 text-sm font-serif font-semibold transition border-[2.5px] shadow-md border-bg rounded-xl bg-primaryVariant text-bg">
+                Word count: {wordCount}
+              </div>    
+
             <button
               className="flex items-center gap-2 px-4 py-2 text-sm font-semibold transition border-[2.5px] text-white shadow-md border-bg rounded-xl duration-400 bg-bg hover:bg-primaryVariant hover:text-bg"
               onClick={handleTranslate}
@@ -257,6 +261,7 @@ const Translation = () => {
             >
               <FaTrash className="text-lg" /> Reset
             </button>
+         
           </div>
 
           <div className="flex gap-3">
@@ -277,15 +282,11 @@ const Translation = () => {
           </div>
         </div>
 
-        {errorMessage && (
-          <div className="px-4 py-2 mt-4 text-sm font-bold text-white bg-red-500 rounded-lg">
+          {errorMessage && (
+            <div className="px-4 py-2 mt-4 text-sm font-bold text-white bg-red-500 rounded-lg">
             {errorMessage}
           </div>
         )}
-        
-        <div className="mt-4 text-sm text-gray-500">
-          Word count: {wordCount}
-        </div>
       </div>
     </div>
   );
