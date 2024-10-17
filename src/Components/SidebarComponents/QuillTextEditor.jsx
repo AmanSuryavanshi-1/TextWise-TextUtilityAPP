@@ -1,8 +1,10 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import { FaQuestionCircle, FaUpload, FaDownload, FaTrash, FaCopy, FaUndo, FaRedo, FaSearch, FaFileDownload, FaAlignLeft } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { FaQuestionCircle, FaTrash, FaCopy, FaUndo, FaRedo, FaSearch, FaFileDownload, FaAlignLeft, FaClock, FaFont, FaTextHeight, FaLock, FaEdit } from 'react-icons/fa';
+import { RxLetterCaseLowercase, RxLetterCaseUppercase } from 'react-icons/rx';
+import { LuClipboardEdit } from 'react-icons/lu';
+import { MdOutlineEditNote } from 'react-icons/md';
 
 const Font = ReactQuill.Quill.import('formats/font');
 Font.whitelist = ['sans-serif', 'serif', 'monospace'];
@@ -12,7 +14,7 @@ const Size = ReactQuill.Quill.import('formats/size');
 Size.whitelist = ['small', 'normal', 'large', 'huge'];
 ReactQuill.Quill.register(Size, true);
 
-const QuillTextEditor = () => {
+export default function Component() {
   const [content, setContent] = useState('');
   const [wordCount, setWordCount] = useState(0);
   const [charCount, setCharCount] = useState(0);
@@ -163,95 +165,110 @@ const QuillTextEditor = () => {
   const readingTime = (0.008 * wordCount).toFixed(2);
 
   return (
-    <div className="p-3 overflow-hidden font-sans bg-primaryVariant dark:bg-bg dark:text-primary max-md:overflow-auto">
-      <div className="relative flex flex-col items-start justify-between gap-2 mb-1 md:gap-2 md:flex-row md:items-center">
+    <div className="flex flex-col h-[94vh] p-4 overflow-hidden font-sans bg-primaryVariant dark:bg-bg dark:text-primary">
+      <div className="flex items-center justify-between mb-2">
         <div className="flex items-center">
-          <h1 className="font-serif text-3xl font-bold sm:text-2xl text-bg dark:text-primary">Comprehensive Text Editor</h1>
+          <h1 className="flex items-center font-serif text-3xl font-bold text-bg dark:text-primary">
+            <LuClipboardEdit className="mr-2 text-3xl" />
+            Text Editor
+          </h1>
           <div 
             className="relative ml-2"
             onMouseEnter={() => setShowPopup(true)}
             onMouseLeave={() => setShowPopup(false)}
           >
-            <FaQuestionCircle className="text-xl cursor-pointer text-bgVariant dark:textColor" />
+            <FaQuestionCircle className="text-2xl cursor-pointer text-bgVariant" />
             {showPopup && (
-              <div className="absolute left-0 z-10 p-4 text-sm text-left bg-white rounded-lg shadow-lg w-72 text-bg dark:bg-bg-variant dark:text-primary hover:cursor-default">
-                <p><strong>Comprehensive Text Editor</strong> is a feature-rich text editing tool.</p>
-                <ul className="list-disc list-inside">
-                  <li>Rich text formatting options</li>
-                  <li>Convert text to uppercase/lowercase/sentence case</li>
-                  <li>Clear text content</li>
-                  <li>Find and replace functionality</li>
-                  <li>Undo/Redo changes</li>
-                  <li>Download edited content</li>
-                  <li>Learn more on the <Link to="/" className="text-primary hover:underline"> landing page</Link>.</li>
+              <div className="absolute left-0 z-10 p-4 font-serif text-sm text-left border-2 rounded-lg shadow-2xl w-72 bg-primary border-bg text-bg dark:bg-bg-variant dark:text-primary hover:cursor-default">
+                <p><strong>Comprehensive Text Editor</strong> features:</p>
+                <ul className="space-y-1 list-disc list-inside">
+                  <li><strong>Rich Text Formatting:</strong> Headings, fonts, sizes, styles, colors, lists, alignment</li>
+                  <li><strong>Advanced Editing:</strong> Case conversion, find/replace, undo/redo, clear, copy</li>
+                  <li><strong>Content Analysis:</strong> Word count, character count, reading time estimate</li>
+                  <li><strong>Media Integration:</strong> Images, videos, hyperlinks</li>
+                  <li><strong>Accessibility:</strong> Editable/read-only modes, tooltips, responsive design</li>
+                  <li><strong>Data Management:</strong> Download as HTML, auto-save*</li>
+                  <li><strong>Additional Features:</strong> Syntax highlighting*, multiple languages*, collaborative editing*, version history*</li>
                 </ul>
               </div>
             )}
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-6 mt-1">
-        <div className="flex flex-col w-full">
-          <div className="flex flex-wrap gap-2 mb-3">
-            {[
-              { icon: FaUpload, text: "Uppercase", onClick: handleUppercase },
-              { icon: FaDownload, text: "Lowercase", onClick: handleLowercase },
-              { icon: FaAlignLeft, text: "Sentence Case", onClick: handleSentenceCase },
-              { icon: FaSearch, text: "Find & Replace", onClick: handleFindReplace },
-              { icon: FaTrash, text: "Clear", onClick: handleClearContent },
-              { icon: FaCopy, text: "Copy", onClick: handleCopy },
-              { icon: FaUndo, text: "Undo", onClick: handleUndo },
-              { icon: FaRedo, text: "Redo", onClick: handleRedo },
-            ].map((btn, index) => (
-              <button 
-                key={index}
-                disabled={content.length === 0} 
-                className="flex items-center gap-2 px-4 py-1 text-sm font-semibold text-white transition shadow-md rounded-xl bg-bgVariant duration-400 hover:bg-primary hover:text-text-color disabled:opacity-50 disabled:cursor-not-allowed"
-                onClick={btn.onClick}
-              >
-                <btn.icon className="text-lg" />{btn.text}
-              </button>
-            ))}
-          </div>
-          <div className="overflow-y-auto bg-white border-2 rounded-md scrollbar-thin scrollbar-thumb-bgVariant scrollbar-track-primary border-bg quill-container" style={{ height: '69vh', display: 'flex', flexDirection: 'column' }}>
-            <ReactQuill
-              ref={quillRef}
-              theme="snow"
-              value={content}
-              onChange={handleChange}
-              modules={modules}
-              formats={formats}
-              readOnly={readOnly}
-              style={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}
-            />
-          </div>
-          <div className="flex items-center justify-between mt-3 text-sm">
-            <div className="flex gap-3">
-              <span className="px-4 py-1 rounded-md bg-bg text-primary">Reading Time: {readingTime} min</span>
-              <span className="px-4 py-1 rounded-md bg-bg text-primary">Words: {wordCount}</span>
-              <span className="px-4 py-1 rounded-md bg-bg text-primary">Characters: {charCount}</span>
-            </div>
-            <div className="flex gap-3">
-              <button 
-                  onClick={toggleReadOnly} 
-                  className={`px-3 py-1 text-md font-bold rounded border-2 border-bg ${readOnly ? 'bg-primary text-bg hover:bg-primaryVariant' : 'bg-bg text-white hover:bg-bgVariant'}`}
-                >
-                {readOnly ? 'Read Only' : 'Editable'}
-              </button>
-              <button 
-                onClick={handleDownload}
-                disabled={content.length === 0} 
-                className="flex items-center gap-1 px-4 py-1 font-bold text-white transition rounded-md shadow-md text-md bg-bg duration-400 hover:bg-bgVariant disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                <FaFileDownload className="text-lg" />Download
-              </button>
-              
-            </div>
-          </div>
+      <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+        <div className="flex flex-wrap gap-2">
+          {[ 
+            { icon: RxLetterCaseUppercase, text: "Uppercase", onClick: handleUppercase },
+            { icon: RxLetterCaseLowercase, text: "Lowercase", onClick: handleLowercase },
+            { icon: FaAlignLeft, text: "Sentence Case", onClick: handleSentenceCase },
+            { icon: FaSearch, text: "Find & Replace", onClick: handleFindReplace },
+            { icon: FaTrash, text: "Clear", onClick: handleClearContent },
+            { icon: FaCopy, text: "Copy", onClick: handleCopy },
+            { icon: FaUndo, text: "Undo", onClick: handleUndo },
+            { icon: FaRedo, text: "Redo", onClick: handleRedo },
+          ].map((btn, index) => (
+            <button 
+              key={index}
+              disabled={content.length === 0} 
+              className="relative p-[0.3rem] text-white transition border-2 rounded-full shadow-md group border-bg bg-bg hover:bg-primaryVariant hover:text-bg disabled:opacity-50 disabled:cursor-not-allowed"
+              onClick={btn.onClick}
+            >
+              <btn.icon className="text-lg" />
+              <span className="absolute px-2 py-1 mb-2 text-xs font-bold text-white transition-opacity duration-300 -translate-x-1/2 bg-gray-800 rounded-lg opacity-0 left-1/2 whitespace-nowrap bottom-full group-hover:opacity-100">
+                {btn.text}
+              </span>
+            </button>
+          ))}
         </div>
+        <div className="flex items-center gap-2">
+          {[
+            { icon: FaClock, value: `${readingTime} min`, label: "Reading Time" },
+            { icon: FaFont, value: wordCount, label: "Word Count" },
+            { icon: FaTextHeight, value: charCount, label: "Character Count" },
+          ].map((item, index) => (
+            <div key={index} className="relative group">
+              <div className="flex items-center gap-1 px-2 py-2 text-xs font-semibold transition-colors duration-300 border-2 rounded-full cursor-pointer border-bg bg-primaryVariant text-bg hover:bg-bg hover:text-primary">
+                <item.icon className="text-sm" />
+                {item.value}
+              </div>
+              <span className="absolute px-2 py-1 mb-2 text-xs font-bold text-white transition-opacity duration-300 -translate-x-1/2 bg-gray-800 rounded-lg opacity-0 left-1/2 whitespace-nowrap bottom-full group-hover:opacity-100">
+                {item.label}
+              </span>
+            </div>
+          ))}
+          <button 
+            onClick={toggleReadOnly} 
+            className={`relative flex items-center p-2 font-semibold transition border-2 shadow-md border-bg rounded-full duration-300 ${readOnly ? 'bg-primaryVariant text-bg hover:bg-bg hover:text-white' : 'bg-bg text-white hover:bg-primaryVariant hover:text-bg'}`}
+          >
+            {readOnly ? <FaLock className="text-lg" /> : <MdOutlineEditNote className="text-lg" />}
+            <span className="absolute px-2 py-1 mb-2 text-xs font-bold text-white transition-opacity duration-300 -translate-x-1/2 bg-gray-800 rounded-lg opacity-0 left-1/2 whitespace-nowrap bottom-full group-hover:opacity-100">
+              {readOnly ? 'Read Only' : 'Editable'}
+            </span>
+          </button>
+          <button 
+            onClick={handleDownload}
+            disabled={content.length === 0} 
+            className="relative p-2 text-white transition border-2 rounded-full shadow-md group border-bg bg-bg hover:bg-primaryVariant hover:text-bg disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <FaFileDownload className="text-lg" />
+            <span className="absolute px-2 py-1 mb-2 text-xs font-bold text-white transition-opacity duration-300 -translate-x-1/2 bg-gray-800 rounded-lg opacity-0 left-1/2 whitespace-nowrap bottom-full group-hover:opacity-100">
+              Download
+            </span>
+          </button>
+        </div>
+      </div>
+      <div className="flex-grow overflow-hidden rounded-md">
+        <ReactQuill
+          ref={quillRef}
+          theme="snow"
+          value={content}
+          onChange={handleChange}
+          modules={modules}
+          formats={formats}
+          readOnly={readOnly}
+          className="h-full bg-white border-b-2 "
+        />
       </div>
     </div>
   );
-};
-
-export default QuillTextEditor;
+}

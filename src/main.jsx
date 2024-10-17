@@ -19,7 +19,6 @@ import Transliteration from './Components/SidebarComponents/Transliteration';
 import Auth from './Pages/Auth';
 import Error from './Pages/Error';
 import LandingPage from './Pages/LandingPage';
-import TextToolkit from './Components/SidebarComponents/TextToolkit';
 import ShimmerAbout from './Shimmer/ShimmerAbout';
 import ReportIssue from './Pages/ReportIssue';
 import Grammar from './Components/SidebarComponents/Grammar';
@@ -61,7 +60,6 @@ const router = createBrowserRouter([
                 element: <AppLayout/>,
                children: [ 
                   { path: "notes", element: <TakeNotes /> },
-                  { path: "text-toolkit", element: <TextToolkit /> },
                   { path: "ai-texting", element: <AI_Texting/>},
                   { path: "ai-texting/summarizer", element: <Summarizer/>},
                   { path: "ai-texting/grammar", element: <Grammar />},

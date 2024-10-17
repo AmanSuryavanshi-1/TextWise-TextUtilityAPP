@@ -170,7 +170,7 @@ const Translation = () => {
       <div className="relative flex flex-col items-start justify-between gap-2 md:gap-2 md:flex-row md:items-center">
         <div className="flex items-center">
           <h1 className="flex font-serif text-4xl font-bold sm:text-3xl text-bg dark:text-primary">
-            <BsTranslate className="mr-2 text-2xl" />
+            <BsTranslate className="mt-1 mr-2 text-2xl" />
             Translation
           </h1>
           <div

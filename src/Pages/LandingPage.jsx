@@ -9,7 +9,6 @@ import Summarizer from '../../assets/Summarizer.jpg'
 import Transcribe from '../../assets/transcribe.jpg'
 import Transliteration from '../../assets/Transliteration.jpg'
 import Youtube from '../../assets/Youtube.jpg'
-import TextToolkit from '../../assets/TextToolkit.jpeg'
 const LandingPage = () => {
 
   const cards = [
@@ -62,20 +61,12 @@ const LandingPage = () => {
         link: "/layout/summarizer"
       },
       { 
-        imgSrc: TextToolkit, 
-        alt: "Text Toolkit", 
-        title: "Text Toolkit", 
-        description: "Enhance your text using our comprehensive toolkit. Whether you need to convert text case, copy, replace, or clear content, our Text Toolkit has everything you need for text manipulation. Perfect for fast editing, our tool is designed to streamline and simplify your text-related tasks.", 
-        icon: <FaTools className="text-3xl text-white" />,
-        link: "/layout/text-toolkit"
-      },
-      { 
         imgSrc: Editor, 
         alt: "Text Toolkit", 
         title: "Text Toolkit", 
         description: "Enhance your text using our comprehensive toolkit. Whether you need to convert text case, copy, replace, or clear content, our Text Toolkit has everything you need for text manipulation. Perfect for fast editing, our tool is designed to streamline and simplify your text-related tasks.", 
         icon: <FaTools className="text-3xl text-white" />,
-        link: "/layout/text-toolkit"
+        link: "/layout/editor"
       },
     ];
   
@@ -131,7 +122,7 @@ const LandingPage = () => {
           </div>
         </div>
 
-        <Link to="/layout/text-toolkit" className="block w-1/4 mx-auto mt-10">
+        <Link to="/layout/editor" className="block w-1/4 mx-auto mt-10">
                 <button className="relative w-full px-8 py-4 overflow-hidden text-lg font-semibold text-white transition-all duration-300 ease-in-out transform border-2 rounded-full shadow-lg group bg-bgVariant hover:shadow-xl border-bg">
                   <span className="absolute inset-0 flex items-center justify-center w-full h-full duration-300 -translate-x-full bg-bg group-hover:translate-x-0 ease">
                     <FaArrowRight className="w-6 h-6 text-white" />

@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { FaEdit, FaTools, FaLanguage, FaMicrophone, FaRobot, FaStickyNote, FaPencilRuler } from 'react-icons/fa';
+import { FaStickyNote } from 'react-icons/fa';
 import { MdKeyboardArrowDown, MdSummarize, MdGrading, MdRecordVoiceOver, MdKeyboardVoice, MdMenu, MdClose } from 'react-icons/md';
+import { LuClipboardEdit } from "react-icons/lu";
+import { SiExcalidraw } from "react-icons/si";
+import { HiTranslate } from 'react-icons/hi';
+import { BsTranslate } from 'react-icons/bs';
 
 const Sidebar = ({ onToggle }) => {
   const location = useLocation();
@@ -96,11 +100,10 @@ const Sidebar = ({ onToggle }) => {
         </button>
       </div>
       <div className="flex flex-col p-2 space-y-1">
-        <NavItem to="editor" icon={FaEdit}>Editor</NavItem>
-        <NavItem to="text-toolkit" icon={FaTools}>Text Toolkit</NavItem>
-        <NavItem to="excalidraw" icon={FaPencilRuler}>ExcaliDraw</NavItem>
-        <NavItem to="transliteration" icon={FaLanguage}>Transliteration</NavItem>
-        <NavItem to="translation" icon={FaLanguage}>Translation</NavItem>
+        <NavItem to="editor" icon={LuClipboardEdit}>Editor</NavItem>
+        <NavItem to="excalidraw" icon={SiExcalidraw}>ExcaliDraw</NavItem>
+        <NavItem to="transliteration" icon={HiTranslate}>Transliteration</NavItem>
+        <NavItem to="translation" icon={BsTranslate}>Translation</NavItem>
 
         {/* <DropdownSection
           title="Transcribe"
