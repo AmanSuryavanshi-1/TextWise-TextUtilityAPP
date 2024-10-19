@@ -6,6 +6,7 @@ import { LuClipboardEdit } from "react-icons/lu";
 import { SiExcalidraw } from "react-icons/si";
 import { HiTranslate } from 'react-icons/hi';
 import { BsTranslate } from 'react-icons/bs';
+import { FaMicrophoneAlt } from "react-icons/fa";
 
 const Sidebar = ({ onToggle }) => {
   const location = useLocation();
@@ -112,7 +113,7 @@ const Sidebar = ({ onToggle }) => {
           toggleOpen={() => toggleDropdown('transcribe')}
           path="/transcribe"
         > */}
-          <NavItem to="stt" icon={MdKeyboardVoice}>Speech➜Text</NavItem>
+          <NavItem to="stt" icon={FaMicrophoneAlt}>Speech➜Text</NavItem>
           <NavItem to="tts" icon={MdRecordVoiceOver}>Text➜Speech</NavItem>
         {/* </DropdownSection> */}
 
